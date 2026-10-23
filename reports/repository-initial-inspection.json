@@ -1,0 +1,13 @@
+{
+  "repository": "freshcanibowl/EvidenceKit",
+  "url": "https://github.com/freshcanibowl/EvidenceKit",
+  "created_at": "2026-10-23T18:41:24Z",
+  "created_at_myt": "2026-10-24T02:41:24+08:00",
+  "public": true,
+  "repository_created_in_window": true,
+  "state_at_initial_inspection": "empty; GitHub commits API returned 409",
+  "source_archive_sha256": "0dbcb781c6a0dd9a2446f34c7058ff481826f1842cf7b05e21d7a1f425337901",
+  "default_branch": "main",
+  "source": "https://api.github.com/repos/freshcanibowl/EvidenceKit",
+  "limitations": "Repository creation is verified. Development start and originality are not independently established by this metadata. No commits were backdated."
+}

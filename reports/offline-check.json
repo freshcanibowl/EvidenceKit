@@ -1,0 +1,197 @@
+{
+  "network_policy": "Python socket connect/connect_ex blocked in this process; not an OS-level air-gap test",
+  "network_connect_attempts": [],
+  "model": {
+    "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+    "device": "cpu",
+    "local_files_only": true,
+    "trust_remote_code": false
+  },
+  "outputs": [
+    {
+      "title": "Supported",
+      "claim": "The parcel was delivered.",
+      "evidence": "The parcel was delivered this morning.",
+      "report": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9940096139907837,
+              "neutral": 0.0053670709021389484,
+              "contradiction": 0.0006232617306523025
+            },
+            "elapsed_ms": 178.67
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "86c12ba03c08d0bf5a5633bf6e26ee1eff46f27f026d35dbd18924e234592db4",
+        "elapsed_ms": 178.8,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "title": "Contradicted",
+      "claim": "Attachment B was received.",
+      "evidence": "Attachment B was not received.",
+      "report": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00022277903917711228,
+              "neutral": 0.00046916535939089954,
+              "contradiction": 0.9993081092834473
+            },
+            "elapsed_ms": 173.33
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "77d3b176427b70bccca8d42d0fc88973f056820698782bfba775ebb7821a817a",
+        "elapsed_ms": 173.44,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "title": "Insufficient",
+      "claim": "The parcel was delivered.",
+      "evidence": "A parcel label was printed.",
+      "report": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.0020497606601566076,
+              "neutral": 0.9970163106918335,
+              "contradiction": 0.0009339507087133825
+            },
+            "elapsed_ms": 170.73
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "0001d49952e0f72e39eb96d01f22ad10f41548a1af4f7ee589c22ac48681e2d5",
+        "elapsed_ms": 170.83,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "title": "Known failure: expected insufficient",
+      "claim": "The cat ate its meal.",
+      "evidence": "The cat stood near the bowl.",
+      "report": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0007228542235679924,
+              "neutral": 0.0613807812333107,
+              "contradiction": 0.9378963708877563
+            },
+            "elapsed_ms": 153.17
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "a619b09390511060c6da4a00b449cd5915aed390bff18822e81903bb2aa321a5",
+        "elapsed_ms": 153.25,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    }
+  ]
+}

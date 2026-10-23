@@ -1,0 +1,2658 @@
+{
+  "generated_at": "2026-10-23T18:13:43.826265+00:00",
+  "dataset_sha256": "343a38af217ae076c67897a586728e9957a9af8766ce758d70079d2f1b133d0c",
+  "model": {
+    "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+    "device": "cpu",
+    "local_files_only": true,
+    "trust_remote_code": false
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "cpu": "x86_64",
+    "dependencies": {
+      "torch": "2.8.0+cpu",
+      "transformers": "4.57.1",
+      "gradio": "5.49.1",
+      "sentencepiece": "0.2.2"
+    }
+  },
+  "cases": 60,
+  "passed": 55,
+  "semantic_cases": 45,
+  "semantic_passed": 40,
+  "semantic_confusion_matrix": {
+    "SUPPORTED": {
+      "SUPPORTED": 15,
+      "CONTRADICTED": 0,
+      "INSUFFICIENT_EVIDENCE": 0,
+      "ERROR": 0
+    },
+    "CONTRADICTED": {
+      "SUPPORTED": 0,
+      "CONTRADICTED": 15,
+      "INSUFFICIENT_EVIDENCE": 0,
+      "ERROR": 0
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "SUPPORTED": 0,
+      "CONTRADICTED": 5,
+      "INSUFFICIENT_EVIDENCE": 10,
+      "ERROR": 0
+    }
+  },
+  "macro_f1": 0.8857142857142857,
+  "supported_precision": 1.0,
+  "model_load_ms": 3034.96,
+  "median_semantic_ms": 160.84,
+  "total_seconds": 10.74,
+  "gates": {
+    "macro_f1_gt_0_80": true,
+    "supported_precision_gt_0_90": true
+  },
+  "limitations": [
+    "Synthetic developer-authored smoke benchmark only, not generalization evidence.",
+    "Rule cases excluded from semantic metrics.",
+    "No human time-savings experiment has been performed.",
+    "Model relation scores do not prove real-world truth."
+  ],
+  "results": [
+    {
+      "id": "NLI-00-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-0-0",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9940096139907837,
+              "neutral": 0.0053670709021389484,
+              "contradiction": 0.0006232617306523025
+            },
+            "elapsed_ms": 231.06
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "5107267389cc55886ad0b7b8884c9f6ee7a3e03aac0375d9e7b4017a3dbdbf03",
+        "elapsed_ms": 231.2,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-00-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-0-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00015317277575377375,
+              "neutral": 0.0005188616923987865,
+              "contradiction": 0.9993280172348022
+            },
+            "elapsed_ms": 163.4
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "e622c2afde79d0580e6e854eec6a106b7c7869a356f6caa31aebfc0eb4ece34f",
+        "elapsed_ms": 163.51,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-00-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-0-2",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.0020497606601566076,
+              "neutral": 0.9970163106918335,
+              "contradiction": 0.0009339507087133825
+            },
+            "elapsed_ms": 229.97
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "85053899a8d31e3fc774fc3f9adffc8687f9e48b626915670ba2c222dc75ab03",
+        "elapsed_ms": 230.33,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-01-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-1-0",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9967541098594666,
+              "neutral": 0.0027116865385323763,
+              "contradiction": 0.0005341728101484478
+            },
+            "elapsed_ms": 177.58
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "fbf80e8aab710dfbc6d8b923a14805f66705134e239ac9e46221d8e91cb3d6e1",
+        "elapsed_ms": 177.7,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-01-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-1-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00022277903917711228,
+              "neutral": 0.00046916535939089954,
+              "contradiction": 0.9993081092834473
+            },
+            "elapsed_ms": 225.44
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "c3c2288b6caf28e19289a756c31be0cda58434a60f1e4e553c371b563781a16c",
+        "elapsed_ms": 225.62,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-01-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": false,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-1-2",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0015025361208245158,
+              "neutral": 0.09483624249696732,
+              "contradiction": 0.9036612510681152
+            },
+            "elapsed_ms": 227.84
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "a62ad17c27416261b2928067c51759c8355ef53369a3c5bc1cb4b7e23062698d",
+        "elapsed_ms": 227.94,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-02-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-2-0",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9933972358703613,
+              "neutral": 0.005186004564166069,
+              "contradiction": 0.001416677376255393
+            },
+            "elapsed_ms": 247.86
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "d8530c04ed9eba23c7e450650508955863ecdce38a497b019f757c72e8be1d18",
+        "elapsed_ms": 247.96,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-02-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-2-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0003377140674274415,
+              "neutral": 0.0007576312054879963,
+              "contradiction": 0.9989047050476074
+            },
+            "elapsed_ms": 157.83
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "ae1df585d331377fef51eba6fd4b6b635b5acc94157ea74351265a814ef6a35f",
+        "elapsed_ms": 157.93,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-02-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": false,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-2-2",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 8.927447197493166e-05,
+              "neutral": 0.0017072702758014202,
+              "contradiction": 0.9982033967971802
+            },
+            "elapsed_ms": 160.74
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "5389da040ee76062617accbb8356d14d7770fe4dabd75cb8511902f8c98bad5f",
+        "elapsed_ms": 160.84,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-03-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-3-0",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.996856689453125,
+              "neutral": 0.0026034594047814608,
+              "contradiction": 0.0005399076617322862
+            },
+            "elapsed_ms": 187.08
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "8335bb280b081053e54272927c63371645dc5482fec01c1d45bb9b10735bcf8c",
+        "elapsed_ms": 187.18,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-03-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-3-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00016823041369207203,
+              "neutral": 0.00034945440711453557,
+              "contradiction": 0.999482274055481
+            },
+            "elapsed_ms": 187.72
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "3f26d8c46f783e93eda2945f08c929e81c01f2baf9554b866a26fb00540905fc",
+        "elapsed_ms": 187.82,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-03-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-3-2",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.001065874588675797,
+              "neutral": 0.9961822628974915,
+              "contradiction": 0.0027518917340785265
+            },
+            "elapsed_ms": 132.19
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "ebec812761181eb50fcebc3dce90913dc50d67e1b82110464373133ed0fdc42a",
+        "elapsed_ms": 132.28,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-04-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-4-0",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9977717995643616,
+              "neutral": 0.0018038362031802535,
+              "contradiction": 0.0004244360898155719
+            },
+            "elapsed_ms": 135.79
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "ffcd65058252ead2f5a4d87c36d91beaec40128b5e3cd8a6674412c7a78d67cb",
+        "elapsed_ms": 135.88,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-04-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-4-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0007179437088780105,
+              "neutral": 0.0006303611444309354,
+              "contradiction": 0.9986516833305359
+            },
+            "elapsed_ms": 138.32
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "6503c6827793a835d7eb5f881e5380258bfdf73e916d2cc72f2ff2841c1f502e",
+        "elapsed_ms": 138.42,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-04-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-4-2",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.0007188883610069752,
+              "neutral": 0.9986932873725891,
+              "contradiction": 0.0005878300289623439
+            },
+            "elapsed_ms": 139.52
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "2cef3b34d30963a684890174f5a4f4f6aa5c24e0f8c7474c5b205bab4c2d6702",
+        "elapsed_ms": 139.62,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-05-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-5-0",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9971275925636292,
+              "neutral": 0.002546862466260791,
+              "contradiction": 0.00032555285724811256
+            },
+            "elapsed_ms": 149.44
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "1a5a9347b86ba8ff209467c1271e006e9e6e35bd752471da9928370b3594f93e",
+        "elapsed_ms": 149.53,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-05-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-5-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00039946738979779184,
+              "neutral": 0.0009142578928731382,
+              "contradiction": 0.9986862540245056
+            },
+            "elapsed_ms": 147.62
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "544647e57fc2607e2b83725b16651de9fb611bf016c0b51e73526f89f4637953",
+        "elapsed_ms": 147.75,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-05-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-5-2",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.00026395617169328034,
+              "neutral": 0.999431312084198,
+              "contradiction": 0.0003048175713047385
+            },
+            "elapsed_ms": 150.56
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "71fc29e202d370607eb59add98a3a9ffbaff2675ae6eaa0488de06e46b38fc84",
+        "elapsed_ms": 150.65,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-06-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-6-0",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9924321174621582,
+              "neutral": 0.007011859677731991,
+              "contradiction": 0.0005560146528296173
+            },
+            "elapsed_ms": 154.25
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "a8da7691121d735db54c5d88435cab8e98488871779fe8a8742fd85274c52428",
+        "elapsed_ms": 154.39,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-06-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-6-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 8.024502312764525e-05,
+              "neutral": 0.0001925158139783889,
+              "contradiction": 0.999727189540863
+            },
+            "elapsed_ms": 144.27
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "ea1940242aedd75a27797c7e028a5f131c5a5f766d6827093b0e5571407cc1e2",
+        "elapsed_ms": 144.37,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-06-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-6-2",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.0012773339403793216,
+              "neutral": 0.9983866214752197,
+              "contradiction": 0.0003361036942806095
+            },
+            "elapsed_ms": 139.91
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "802dd30327e8a4340db0f4be220637d5a6d39b9d31f67a231f41c1fc742de8ee",
+        "elapsed_ms": 140.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-07-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-7-0",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9983024597167969,
+              "neutral": 0.0014005497796460986,
+              "contradiction": 0.0002968800254166126
+            },
+            "elapsed_ms": 145.62
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "65759d27da56913fe970460ad754c36f1245659afdf60afd63581c6719c4d15f",
+        "elapsed_ms": 145.71,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-07-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-7-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00019993034948129207,
+              "neutral": 0.00024007642059586942,
+              "contradiction": 0.9995599389076233
+            },
+            "elapsed_ms": 145.86
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "df5c513d74e4672f9f791110ffd233657a69910af66903c1426322b887d6bcea",
+        "elapsed_ms": 145.96,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-07-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": false,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-7-2",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0007228542235679924,
+              "neutral": 0.0613807812333107,
+              "contradiction": 0.9378963708877563
+            },
+            "elapsed_ms": 153.65
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "d3f195bfe01a818dea875db1133d455af346fdae73e751dd945fddd98ef40ee3",
+        "elapsed_ms": 153.74,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-08-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-8-0",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9982169270515442,
+              "neutral": 0.0013925435487180948,
+              "contradiction": 0.0003905788471456617
+            },
+            "elapsed_ms": 242.68
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "cb74d811e741fedd27e91f5deec120a8c3310c673d52d6004218e8fbb7bd5be4",
+        "elapsed_ms": 242.78,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-08-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-8-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0002614557452034205,
+              "neutral": 0.0003629472339525819,
+              "contradiction": 0.9993756413459778
+            },
+            "elapsed_ms": 147.4
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "5bda82e81f0e7cf6d8513fe94e8f54bd10b6f3a2aadfcbeb8dd8ea49f478803f",
+        "elapsed_ms": 147.5,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-08-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": false,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-8-2",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0008410232258029282,
+              "neutral": 0.03894402086734772,
+              "contradiction": 0.9602149724960327
+            },
+            "elapsed_ms": 137.68
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "98a378bd6475a3ac4a216d0d28a4aedcdafa786dc0493a7f124d1af385c9b211",
+        "elapsed_ms": 137.78,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-09-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-9-0",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9966413974761963,
+              "neutral": 0.002825309056788683,
+              "contradiction": 0.0005333433509804308
+            },
+            "elapsed_ms": 185.09
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "0e0b935a3c096a7316305c66a573bf60802097d8609d400ef240b5c78e50d63a",
+        "elapsed_ms": 185.19,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-09-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-9-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00022386133787222207,
+              "neutral": 0.00027941016014665365,
+              "contradiction": 0.9994966983795166
+            },
+            "elapsed_ms": 193.83
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "e8628edf7cc93cca6bdb8603eaf2b86d22e84d78bb168f198f3d9afcc2f28ccd",
+        "elapsed_ms": 193.94,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-09-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-9-2",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.22576193511486053,
+              "neutral": 0.7716479301452637,
+              "contradiction": 0.0025901240296661854
+            },
+            "elapsed_ms": 226.98
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "13b628b36148ae2fac608a4a2d8c17a56a3a752eb0e867c83cc0e0ba397d5ed7",
+        "elapsed_ms": 227.09,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-10-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-10-0",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9974332451820374,
+              "neutral": 0.0020120812114328146,
+              "contradiction": 0.0005546447355300188
+            },
+            "elapsed_ms": 170.02
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "7f4fefec5b1576ce16e1cfd8b5b718b84e281044aa5e576680c62453d227114f",
+        "elapsed_ms": 170.11,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-10-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-10-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00023083285486791283,
+              "neutral": 0.0005596118280664086,
+              "contradiction": 0.9992095232009888
+            },
+            "elapsed_ms": 154.71
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "eb37f5afe11fcbb80b105f2bc940d964b8bf3bb66859dd88b33a22a879db0e2a",
+        "elapsed_ms": 154.8,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-10-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": false,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-10-2",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00014354295853991061,
+              "neutral": 0.0009050603257492185,
+              "contradiction": 0.9989513158798218
+            },
+            "elapsed_ms": 199.72
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "f3fcac1390231c76dd5db045943f2764ccd2f55548c9c26e2dcf48a75a3da236",
+        "elapsed_ms": 199.85,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-11-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-11-0",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9979850053787231,
+              "neutral": 0.0015759860398247838,
+              "contradiction": 0.00043902458855882287
+            },
+            "elapsed_ms": 150.18
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "6d0f09e07e54f56dbc11c1474a0502824f4df41a5d7b4aec9b794cd22916c71f",
+        "elapsed_ms": 150.27,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-11-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-11-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0002757981710601598,
+              "neutral": 0.0009569351095706224,
+              "contradiction": 0.9987672567367554
+            },
+            "elapsed_ms": 159.58
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "e7bdc0aa4e49c629dca797f1e07860d86ec73696dc8226342bbecae30b886e7a",
+        "elapsed_ms": 159.68,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-11-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-11-2",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.020637137815356255,
+              "neutral": 0.97598797082901,
+              "contradiction": 0.003374910680577159
+            },
+            "elapsed_ms": 149.42
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "4a17461e61aa5720967deba33fb05b31674b8b567b8eb71539984a1fc151ba1d",
+        "elapsed_ms": 149.51,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-12-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-12-0",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9958679676055908,
+              "neutral": 0.0034653586335480213,
+              "contradiction": 0.0006667535053566098
+            },
+            "elapsed_ms": 161.98
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "a9c3e0949877f8e36113a453fc5408e2394eb1d5f2feae02271c8902d2f02fee",
+        "elapsed_ms": 162.08,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-12-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-12-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0007861963240429759,
+              "neutral": 0.0006237982306629419,
+              "contradiction": 0.9985899329185486
+            },
+            "elapsed_ms": 177.66
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "c881844dde30ec83cc10bd09089b14d63adb03e0b76a62ceb1797a256dc28c22",
+        "elapsed_ms": 177.76,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-12-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-12-2",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.08875100314617157,
+              "neutral": 0.9021515250205994,
+              "contradiction": 0.009097527712583542
+            },
+            "elapsed_ms": 156.0
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "e66b8f6d44ebab15531c00583a29cc2204b41a86006e17ae30e077ae8df824c8",
+        "elapsed_ms": 156.09,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-13-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-13-0",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9958712458610535,
+              "neutral": 0.003380900714546442,
+              "contradiction": 0.0007478477782569826
+            },
+            "elapsed_ms": 169.18
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "c5892fc4702992c1cccbad5840e3b234d3dbd90f4490faff5ccc3c0e2f2ea5e0",
+        "elapsed_ms": 169.27,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-13-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-13-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00026277906727045774,
+              "neutral": 0.0009238235652446747,
+              "contradiction": 0.9988133907318115
+            },
+            "elapsed_ms": 170.95
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "a37dd5d01399fc2981c26b52fcb2d4194b66a1be48384d3581352613e967ab26",
+        "elapsed_ms": 171.05,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-13-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-13-2",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.0025814122054725885,
+              "neutral": 0.8423058390617371,
+              "contradiction": 0.15511268377304077
+            },
+            "elapsed_ms": 160.05
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "7155f5ab397e647e36dc98bc164850c1bdee08ee0e6c80aa17cc053711c69cc6",
+        "elapsed_ms": 160.14,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-14-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-14-0",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9952880144119263,
+              "neutral": 0.003632474225014448,
+              "contradiction": 0.0010794484987854958
+            },
+            "elapsed_ms": 166.13
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "06a329e3dd39315f43e437c0a447d4c2c96e0c553c6348e88579fa33e53cace1",
+        "elapsed_ms": 166.26,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-14-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-14-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00013004220090806484,
+              "neutral": 0.00022726441966369748,
+              "contradiction": 0.9996427297592163
+            },
+            "elapsed_ms": 167.56
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "b678267c631291abc6e6b2acd05d678c418e6039830c111d4f33919abb50f093",
+        "elapsed_ms": 167.66,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "NLI-14-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-14-2",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.0012341736583039165,
+              "neutral": 0.9940147995948792,
+              "contradiction": 0.004751112777739763
+            },
+            "elapsed_ms": 172.05
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "04d9b09655c07ba421aae40c2d77eaa21ea2c0e57afd5c0926cfea65b343c69e",
+        "elapsed_ms": 172.18,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "RULE-00",
+      "category": "invalid_reference",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "C-0-0",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": false,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [
+          "MISSING"
+        ],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "38f0ddae31ee2d8398f85e94f76ffde4e7af4db6d2c40469b27525bd6eba456d",
+        "elapsed_ms": 0.06,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "RULE-01",
+      "category": "time_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "C-1-0",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": false,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [
+          "E-1"
+        ],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "09dfff86c6397a700b3fc0acac58a9a02184d821e8157ae9729bd7dd7ba009b1",
+        "elapsed_ms": 0.02,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "RULE-02",
+      "category": "source_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "C-2-0",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": false
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [
+          "E-1"
+        ],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "93e83d3cd3c157190d0943bf9cb12544be81760fbf9f4a31d8b56a7d9a15af91",
+        "elapsed_ms": 0.02,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "RULE-03",
+      "category": "invalid_reference",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "C-3-0",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": false,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [
+          "MISSING"
+        ],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "2e5351c86c3d17b64704a6f8c7795a9327ce97ac573957567664d17af68792b2",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "RULE-04",
+      "category": "time_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "C-4-0",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": false,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [
+          "E-1"
+        ],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "76fc4563eea06a1605e1629ccdf2a27b0225836eb6051233c9adc4ec401ccbae",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "RULE-05",
+      "category": "source_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "C-5-0",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": false
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [
+          "E-1"
+        ],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "5ceb6236e92a8c96cfd26f17045058e63d1cf7e5d129efd297181a20f388fc5d",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "RULE-06",
+      "category": "invalid_reference",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "C-6-0",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": false,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [
+          "MISSING"
+        ],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "ac3a037b84df9d84e2401ed96e34a6c976dfb13ffa23d77b2be4081ea3c4db21",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "RULE-07",
+      "category": "time_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "C-7-0",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": false,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [
+          "E-1"
+        ],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "c337adeb50f46fbf5ba5d950c66bf3f23780148e2b421445884905eaa76e7158",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "RULE-08",
+      "category": "source_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "C-8-0",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": false
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [
+          "E-1"
+        ],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "0037a1176daeca48a3b3ee65cbef1850790b74eeca5b6a7eb560f1dc3e7ecd4f",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "RULE-09",
+      "category": "invalid_reference",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "C-9-0",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": false,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [
+          "MISSING"
+        ],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "38a77633a7006b19a25d5e9d5a09aede049009e8a70c219fec3c91ce03d9a3ec",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "RULE-10",
+      "category": "time_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "C-10-0",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": false,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [
+          "E-1"
+        ],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "a2baa6eabca98baa2fe38a4b1d12d20815001964a7df128f39161a0336335783",
+        "elapsed_ms": 0.02,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "RULE-11",
+      "category": "source_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "C-11-0",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": false
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [
+          "E-1"
+        ],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "7c00ea3ece05832e8a83e31eae0c2925f4f472b5a8ed9692534f84e95edd0708",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "RULE-12",
+      "category": "invalid_reference",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "C-12-0",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": false,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [
+          "MISSING"
+        ],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "bad6bc433750398346466b8f6afdfce7a4246bdb5a34f0553157a20f3fe153f7",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "RULE-13",
+      "category": "time_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "C-13-0",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": false,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [
+          "E-1"
+        ],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "30806cabd836fb8459f241b661d3bf6e111e759ec1769d0bac9535db60f9b2a6",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    },
+    {
+      "id": "RULE-14",
+      "category": "source_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "pass": true,
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "C-14-0",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": false
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [
+          "E-1"
+        ],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "87afab00e9e5c8a8b29292e85ba047bb76ec392061096d66c5bc232be057f0c9",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      }
+    }
+  ]
+}

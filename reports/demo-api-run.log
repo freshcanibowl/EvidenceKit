@@ -1,0 +1,5 @@
+Supported SUPPORTED — MODEL_ENTAILMENT. Human review required.
+Contradicted CONTRADICTED — MODEL_CONTRADICTION. Human review required.
+Insufficient INSUFFICIENT_EVIDENCE — NEUTRAL_OR_LOW_CONFIDENCE. Human review required.
+Known failure: expected insufficient CONTRADICTED — MODEL_CONTRADICTION. Human review required.
+Closing server running on port: 7861

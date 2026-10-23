@@ -1,0 +1,40 @@
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files:  12%|█▎        | 1/8 [00:06<00:47,  6.75s/it]Fetching 8 files:  75%|███████▌  | 6/8 [00:14<00:04,  2.33s/it]Fetching 8 files: 100%|██████████| 8/8 [00:27<00:00,  3.44s/it]
+{
+  "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+  "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+  "license_declared_upstream": "MIT",
+  "files": {
+    "config.json": {
+      "sha256": "a6c616d6dabeacf90fd0e776c741d3f0f30a05533ccf0bd3b5b62e94cfaa8d57",
+      "bytes": 1090
+    },
+    "spm.model": {
+      "sha256": "c679fbf93643d19aab7ee10c0b99e460bdbc02fedf34b92b05af343b4af586fd",
+      "bytes": 2464616
+    },
+    "pytorch_model.bin": {
+      "sha256": "2a2d9e8fc302d1a04f0325c4b0d37aa504f64971667078ad04dfbb7120006d2f",
+      "bytes": 368935915
+    },
+    "special_tokens_map.json": {
+      "sha256": "9463f61e1b109a8eb4688b829260d7c6b1e6dff04c98ff7269bb89e2b92369b9",
+      "bytes": 286
+    },
+    "README.md": {
+      "sha256": "4ffce2b113463476777ccc8efd1f0ea0571510a96a2c84f2d2aab152951b13ca",
+      "bytes": 23571
+    },
+    "tokenizer_config.json": {
+      "sha256": "557b3d33d3f41b81ad769244e506549e98a1857d41dd58160aacd4d98d710b5a",
+      "bytes": 1284
+    },
+    "model.safetensors": {
+      "sha256": "06d6fd89edd4f97816831626daafbdb0b029cf63bae8edc0bccab1d64e2e7707",
+      "bytes": 368877646
+    },
+    "tokenizer.json": {
+      "sha256": "05402ffae6dd382a8491b1d29bfc139bec5d332662e86a026f433ce54c25c202",
+      "bytes": 8656646
+    }
+  }
+}

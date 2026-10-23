@@ -1,0 +1,1 @@
+{"synthetic":true,"claims":[{"id":"C-1","text":"The form was submitted","evidence_ids":["E-1"]}],"evidence":[{"id":"E-1","source":"synthetic-log","text":"Form submitted","stance":"supports","version":1}]}

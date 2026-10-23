@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "open-evidencekit"
+version = "0.2.0"
+description = "Local-first, human-verifiable evidence bundle review"
+requires-python = ">=3.10"
+license = "MIT"
+[project.optional-dependencies]
+ai = ["transformers==4.57.1", "torch==2.8.0", "sentencepiece==0.2.2"]
+demo = ["gradio==5.49.1", "socksio==1.0.0"]
+test = ["pytest>=8,<10"]
+[project.scripts]
+evidencekit = "open_evidencekit.cli:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -1,0 +1,61 @@
+{
+  "generated_at": "2026-10-23T18:13:43.826265+00:00",
+  "dataset_sha256": "343a38af217ae076c67897a586728e9957a9af8766ce758d70079d2f1b133d0c",
+  "model": {
+    "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+    "device": "cpu",
+    "local_files_only": true,
+    "trust_remote_code": false
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "cpu": "x86_64",
+    "dependencies": {
+      "torch": "2.8.0+cpu",
+      "transformers": "4.57.1",
+      "gradio": "5.49.1",
+      "sentencepiece": "0.2.2"
+    }
+  },
+  "cases": 60,
+  "passed": 55,
+  "semantic_cases": 45,
+  "semantic_passed": 40,
+  "semantic_confusion_matrix": {
+    "SUPPORTED": {
+      "SUPPORTED": 15,
+      "CONTRADICTED": 0,
+      "INSUFFICIENT_EVIDENCE": 0,
+      "ERROR": 0
+    },
+    "CONTRADICTED": {
+      "SUPPORTED": 0,
+      "CONTRADICTED": 15,
+      "INSUFFICIENT_EVIDENCE": 0,
+      "ERROR": 0
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "SUPPORTED": 0,
+      "CONTRADICTED": 5,
+      "INSUFFICIENT_EVIDENCE": 10,
+      "ERROR": 0
+    }
+  },
+  "macro_f1": 0.8857142857142857,
+  "supported_precision": 1.0,
+  "model_load_ms": 3034.96,
+  "median_semantic_ms": 160.84,
+  "total_seconds": 10.74,
+  "gates": {
+    "macro_f1_gt_0_80": true,
+    "supported_precision_gt_0_90": true
+  },
+  "limitations": [
+    "Synthetic developer-authored smoke benchmark only, not generalization evidence.",
+    "Rule cases excluded from semantic metrics.",
+    "No human time-savings experiment has been performed.",
+    "Model relation scores do not prove real-world truth."
+  ]
+}

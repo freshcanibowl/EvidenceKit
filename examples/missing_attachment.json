@@ -1,0 +1,5 @@
+{
+  "synthetic": true,
+  "claims": [{"id": "DOC-001", "text": "The audit attachment B was received.", "evidence_ids": ["E-001", "ATTACHMENT-B"]}],
+  "evidence": [{"id": "E-001", "source": "synthetic-register", "text": "Attachment A was received.", "stance": "unknown", "version": 1}]
+}

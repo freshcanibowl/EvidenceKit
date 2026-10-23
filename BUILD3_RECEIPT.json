@@ -1,0 +1,33 @@
+{
+  "build": 3,
+  "checked_at": "2026-10-23T18:21:20.848731+00:00",
+  "status": "PASS_WITH_BLOCKERS",
+  "unit_tests_passed": 42,
+  "semantic_correct": 40,
+  "semantic_total": 45,
+  "macro_f1": 0.8857142857142857,
+  "supported_precision": 1.0,
+  "all_cases_completed": 60,
+  "expected_outcomes_matched": 55,
+  "gradio_http_status": 200,
+  "gradio_examples": 4,
+  "offline_socket_attempts": 0,
+  "model": {
+    "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+    "device": "cpu",
+    "local_files_only": true,
+    "trust_remote_code": false
+  },
+  "browser_visual_qa_verified": false,
+  "repository_creation_verified": false,
+  "published": false,
+  "production_modified": false,
+  "blockers": [
+    "actual repository URL and creation/commit evidence",
+    "visual browser QA",
+    "adversarial evaluation coverage incomplete",
+    "public demo/video URL and DEV post publication"
+  ],
+  "video_kind": "captioned captured-results visualization, not browser recording"
+}

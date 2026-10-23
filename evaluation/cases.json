@@ -1,0 +1,1435 @@
+{
+  "notes": "Synthetic developer-authored smoke benchmark, not independent validation. Frozen before first model run. 45 semantic + 15 rule cases. Threshold 0.80 fixed beforehand. No tuning on this set.",
+  "cases": [
+    {
+      "id": "NLI-00-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-0-0",
+          "text": "The parcel was delivered.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The parcel was delivered this morning.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-00-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-0-1",
+          "text": "The parcel was delivered.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The parcel was not delivered.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-00-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-0-2",
+          "text": "The parcel was delivered.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "A parcel label was printed.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-01-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-1-0",
+          "text": "Attachment B was received.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "Attachment B was received by the office.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-01-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-1-1",
+          "text": "Attachment B was received.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "Attachment B was not received.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-01-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-1-2",
+          "text": "Attachment B was received.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "Attachment A was received.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-02-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-2-0",
+          "text": "The meeting was cancelled.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The meeting was cancelled by the organizer.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-02-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-2-1",
+          "text": "The meeting was cancelled.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The meeting was not cancelled.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-02-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-2-2",
+          "text": "The meeting was cancelled.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The meeting agenda was drafted.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-03-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-3-0",
+          "text": "The invoice was paid.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The invoice was paid in full.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-03-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-3-1",
+          "text": "The invoice was paid.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The invoice remains unpaid.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-03-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-3-2",
+          "text": "The invoice was paid.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The invoice was emailed to the customer.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-04-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-4-0",
+          "text": "The door is locked.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The door is locked.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-04-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-4-1",
+          "text": "The door is locked.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The door is unlocked.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-04-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-4-2",
+          "text": "The door is locked.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The door is painted blue.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-05-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-5-0",
+          "text": "The package contains a book.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "A book is inside the package.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-05-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-5-1",
+          "text": "The package contains a book.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "There is no book in the package.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-05-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-5-2",
+          "text": "The package contains a book.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The package is on the desk.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-06-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-6-0",
+          "text": "The backup completed successfully.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The backup completed successfully last night.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-06-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-6-1",
+          "text": "The backup completed successfully.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The backup failed and did not complete.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-06-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-6-2",
+          "text": "The backup completed successfully.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The backup job was scheduled.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-07-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-7-0",
+          "text": "The cat ate its meal.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The cat ate its entire meal.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-07-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-7-1",
+          "text": "The cat ate its meal.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The cat did not eat any of its meal.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-07-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-7-2",
+          "text": "The cat ate its meal.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The cat stood near the bowl.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-08-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-8-0",
+          "text": "The dog drank water.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The dog drank water from the bowl.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-08-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-8-1",
+          "text": "The dog drank water.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The dog did not drink any water.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-08-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-8-2",
+          "text": "The dog drank water.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The dog walked past the water bowl.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-09-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-9-0",
+          "text": "The shop is open.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The shop is open for customers.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-09-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-9-1",
+          "text": "The shop is open.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The shop is closed.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-09-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-9-2",
+          "text": "The shop is open.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The shop has a red sign.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-10-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-10-0",
+          "text": "The file was deleted.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The file was deleted from the folder.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-10-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-10-1",
+          "text": "The file was deleted.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The file was not deleted.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-10-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-10-2",
+          "text": "The file was deleted.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The file was renamed.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-11-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-11-0",
+          "text": "The train arrived.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The train arrived at the station.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-11-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-11-1",
+          "text": "The train arrived.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The train has not arrived.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-11-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-11-2",
+          "text": "The train arrived.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "A ticket was purchased for the train.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-12-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-12-0",
+          "text": "The lamp is on.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The lamp is switched on.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-12-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-12-1",
+          "text": "The lamp is on.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The lamp is switched off.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-12-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-12-2",
+          "text": "The lamp is on.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The lamp is on a wooden table.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-13-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-13-0",
+          "text": "The form was signed.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The form was signed by its author.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-13-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-13-1",
+          "text": "The form was signed.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The form has not been signed.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-13-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-13-2",
+          "text": "The form was signed.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The form was printed.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-14-0",
+      "category": "support",
+      "expected": "SUPPORTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-14-0",
+          "text": "The battery is fully charged.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The battery is charged to full capacity.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-14-1",
+      "category": "contradiction",
+      "expected": "CONTRADICTED",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-14-1",
+          "text": "The battery is fully charged.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The battery is completely empty.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NLI-14-2",
+      "category": "insufficient",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-14-2",
+          "text": "The battery is fully charged.",
+          "source_ids": [
+            "E-1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The battery is connected to a charger.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RULE-00",
+      "category": "invalid_reference",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "expected_status": "INVALID_REFERENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-0-0",
+          "text": "The parcel was delivered.",
+          "source_ids": [
+            "MISSING"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The parcel was delivered this morning.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RULE-01",
+      "category": "time_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "expected_status": "INVALID_REFERENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-1-0",
+          "text": "Attachment B was received.",
+          "source_ids": [
+            "E-1"
+          ],
+          "time_range": {
+            "start": "2026-10-22T00:00:00Z",
+            "end": "2026-10-23T00:00:00Z"
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "Attachment B was received by the office.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RULE-02",
+      "category": "source_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "expected_status": "INVALID_REFERENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-2-0",
+          "text": "The meeting was cancelled.",
+          "source_ids": [
+            "E-1"
+          ],
+          "allowed_source_types": [
+            "camera_observation"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The meeting was cancelled by the organizer.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RULE-03",
+      "category": "invalid_reference",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "expected_status": "INVALID_REFERENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-3-0",
+          "text": "The invoice was paid.",
+          "source_ids": [
+            "MISSING"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The invoice was paid in full.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RULE-04",
+      "category": "time_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "expected_status": "INVALID_REFERENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-4-0",
+          "text": "The door is locked.",
+          "source_ids": [
+            "E-1"
+          ],
+          "time_range": {
+            "start": "2026-10-22T00:00:00Z",
+            "end": "2026-10-23T00:00:00Z"
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The door is locked.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RULE-05",
+      "category": "source_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "expected_status": "INVALID_REFERENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-5-0",
+          "text": "The package contains a book.",
+          "source_ids": [
+            "E-1"
+          ],
+          "allowed_source_types": [
+            "camera_observation"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "A book is inside the package.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RULE-06",
+      "category": "invalid_reference",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "expected_status": "INVALID_REFERENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-6-0",
+          "text": "The backup completed successfully.",
+          "source_ids": [
+            "MISSING"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The backup completed successfully last night.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RULE-07",
+      "category": "time_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "expected_status": "INVALID_REFERENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-7-0",
+          "text": "The cat ate its meal.",
+          "source_ids": [
+            "E-1"
+          ],
+          "time_range": {
+            "start": "2026-10-22T00:00:00Z",
+            "end": "2026-10-23T00:00:00Z"
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The cat ate its entire meal.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RULE-08",
+      "category": "source_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "expected_status": "INVALID_REFERENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-8-0",
+          "text": "The dog drank water.",
+          "source_ids": [
+            "E-1"
+          ],
+          "allowed_source_types": [
+            "camera_observation"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The dog drank water from the bowl.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RULE-09",
+      "category": "invalid_reference",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "expected_status": "INVALID_REFERENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-9-0",
+          "text": "The shop is open.",
+          "source_ids": [
+            "MISSING"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The shop is open for customers.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RULE-10",
+      "category": "time_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "expected_status": "INVALID_REFERENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-10-0",
+          "text": "The file was deleted.",
+          "source_ids": [
+            "E-1"
+          ],
+          "time_range": {
+            "start": "2026-10-22T00:00:00Z",
+            "end": "2026-10-23T00:00:00Z"
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The file was deleted from the folder.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RULE-11",
+      "category": "source_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "expected_status": "INVALID_REFERENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-11-0",
+          "text": "The train arrived.",
+          "source_ids": [
+            "E-1"
+          ],
+          "allowed_source_types": [
+            "camera_observation"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The train arrived at the station.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RULE-12",
+      "category": "invalid_reference",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "expected_status": "INVALID_REFERENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-12-0",
+          "text": "The lamp is on.",
+          "source_ids": [
+            "MISSING"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The lamp is switched on.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RULE-13",
+      "category": "time_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "expected_status": "INVALID_REFERENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-13-0",
+          "text": "The form was signed.",
+          "source_ids": [
+            "E-1"
+          ],
+          "time_range": {
+            "start": "2026-10-22T00:00:00Z",
+            "end": "2026-10-23T00:00:00Z"
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The form was signed by its author.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RULE-14",
+      "category": "source_mismatch",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "expected_status": "INVALID_REFERENCE",
+      "bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C-14-0",
+          "text": "The battery is fully charged.",
+          "source_ids": [
+            "E-1"
+          ],
+          "allowed_source_types": [
+            "camera_observation"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E-1",
+            "text": "The battery is charged to full capacity.",
+            "source_type": "synthetic_log",
+            "observed_at": "2026-10-21T10:00:00Z"
+          }
+        ]
+      }
+    }
+  ]
+}

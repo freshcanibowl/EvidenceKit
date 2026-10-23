@@ -1,0 +1,1 @@
+{"synthetic":true,"claims":[{"id":"C-1","text":"The package arrived","evidence_ids":["E-1","E-2"]}],"evidence":[{"id":"E-1","source":"synthetic-log","text":"Received","stance":"supports","version":1},{"id":"E-2","source":"synthetic-log","text":"Not received","stance":"refutes","version":1}]}
