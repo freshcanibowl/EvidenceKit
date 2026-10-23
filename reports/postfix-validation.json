@@ -1,0 +1,1629 @@
+{
+  "generated_at": "2026-10-23T19:16:05.419376+00:00",
+  "dataset_sha256": "2e7487030405109e682dcd4c45df6fd65ac9445fb7597b93243cacd8c04e79c2",
+  "model": {
+    "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+    "device": "cpu",
+    "local_files_only": true,
+    "trust_remote_code": false
+  },
+  "threshold": 0.8,
+  "cases": 24,
+  "passed_under_declared_adapter": 20,
+  "groups": {
+    "semantic": {
+      "total": 24,
+      "passed": 20
+    }
+  },
+  "semantic_macro_f1": 0.8380952380952381,
+  "semantic_supported_precision": 1.0,
+  "semantic_matrix": {
+    "SUPPORTED": {
+      "SUPPORTED": 6,
+      "CONTRADICTED": 0,
+      "INSUFFICIENT_EVIDENCE": 2,
+      "ERROR": 0
+    },
+    "CONTRADICTED": {
+      "SUPPORTED": 0,
+      "CONTRADICTED": 6,
+      "INSUFFICIENT_EVIDENCE": 2,
+      "ERROR": 0
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "SUPPORTED": 0,
+      "CONTRADICTED": 0,
+      "INSUFFICIENT_EVIDENCE": 8,
+      "ERROR": 0
+    }
+  },
+  "semantic_metrics": {
+    "SUPPORTED": {
+      "precision": 1.0,
+      "f1": 0.8571428571428571,
+      "expected_count": 8
+    },
+    "CONTRADICTED": {
+      "precision": 1.0,
+      "f1": 0.8571428571428571,
+      "expected_count": 8
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "precision": 0.6666666666666666,
+      "f1": 0.8,
+      "expected_count": 8
+    }
+  },
+  "failed_case_ids": [
+    "V07",
+    "V08",
+    "V15",
+    "V16"
+  ],
+  "elapsed_seconds": 2.44,
+  "full_original_contract_accepted": false,
+  "performance_thresholds_met": true,
+  "adapter_disclosures": [
+    "Input cited_evidence_ids maps to claim.source_ids; evidence text and candidate labels unchanged.",
+    "INSUFFICIENT maps to INSUFFICIENT_EVIDENCE. Missing references assessed as blocked before inference, not exact original status/verdict equality.",
+    "T20 intentionally injects an exception; it is not real model inference and is excluded from semantic scores.",
+    "No numeric calculator or added temporal metadata. Numeric claims/quoted text and selected risk cues can abstain before inference. source_quote/finalized are not authenticated.",
+    "Eligible uncited context can veto cited support but cannot establish a claim; out-of-scope context is logged.",
+    "All reports require human review; original expected review_required=false is not accepted as a product change.",
+    "Candidate labels are authored and unadjudicated; metrics do not prove generalization. Original benchmark remains unchanged.",
+    "Upstream evaluate_predictions.py was not used: it combines fault injection with invalid-input accounting and omits semantic mismatches from failed_case_ids."
+  ],
+  "results": [
+    {
+      "case_id": "V01",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The receipt was emailed.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The receipt was emailed to the customer.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E",
+            "cited": true,
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9971187114715576,
+              "neutral": 0.0023186199832707644,
+              "contradiction": 0.0005627005593851209
+            },
+            "elapsed_ms": 265.19
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "44530fa98031b376b1e203c6f9918dcf69fb98a25ff705249cd1b3a847bee348",
+        "elapsed_ms": 265.75,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V02",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The gate is closed.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The gate is closed.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E",
+            "cited": true,
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9975805282592773,
+              "neutral": 0.0019344208994880319,
+              "contradiction": 0.0004851277335546911
+            },
+            "elapsed_ms": 184.31
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "92c9c8cab5229acc8130bc270961a257aaa6a969792169f929de07b5d5cb5a6c",
+        "elapsed_ms": 184.48,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V03",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The server restarted.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The server restarted successfully.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E",
+            "cited": true,
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9971520900726318,
+              "neutral": 0.0023235687986016273,
+              "contradiction": 0.0005242815823294222
+            },
+            "elapsed_ms": 144.97
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "1513bbb2fd15d66a635ec4f54814830e444684670fb517ecaae136f4d98eed61",
+        "elapsed_ms": 145.11,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V04",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The payment is pending.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The payment is still pending.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E",
+            "cited": true,
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9925892353057861,
+              "neutral": 0.0062256320379674435,
+              "contradiction": 0.0011851349845528603
+            },
+            "elapsed_ms": 151.08
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "dac88b6bdb9d18938af97e721ff2f01676801d84e03e1ddb6d5979c16cfe3c72",
+        "elapsed_ms": 151.22,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V05",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The coat is green.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The coat is green.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E",
+            "cited": true,
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9961766004562378,
+              "neutral": 0.0032584345899522305,
+              "contradiction": 0.0005649442900903523
+            },
+            "elapsed_ms": 175.33
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "713b409cd66dbfe17edce7ebef19ad5e388fbbe71a3c4e5811fb4567890e7f4c",
+        "elapsed_ms": 175.47,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V06",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The archive was restored.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The archive was restored from backup.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E",
+            "cited": true,
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9949404001235962,
+              "neutral": 0.003981790505349636,
+              "contradiction": 0.0010777385905385017
+            },
+            "elapsed_ms": 208.0
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "8353a4ab6c19479c8046770f066a6fcacc47442312d9894585ab542649a253e7",
+        "elapsed_ms": 208.19,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V07",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The parcel weighs 3 kg.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The parcel weighs exactly 3 kg.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NUMERIC_CLAIM_REQUIRES_REVIEW"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [
+          "NUMERIC_CLAIM_REQUIRES_REVIEW"
+        ],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "f8b31d9e11a4c00cb9b917ec18456b431591f8ca6beeb9383eb0b9245b1356da",
+        "elapsed_ms": 0.07,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "V08",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The label says \"fragile\".",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The label says \"fragile\".",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "QUOTED_TEXT_REQUIRES_REVIEW"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [
+          "QUOTED_TEXT_REQUIRES_REVIEW"
+        ],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "d5c0eb96520a393ae29c960d1af95f5b77af1040608bea719b54b40409ef419f",
+        "elapsed_ms": 0.03,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "V09",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The receipt was emailed.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The receipt was not emailed.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E",
+            "cited": true,
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.000250113575020805,
+              "neutral": 0.0006146632367745042,
+              "contradiction": 0.9991351962089539
+            },
+            "elapsed_ms": 167.15
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "eb6d0588489c693dd8df5943c90a11748350847f4e5d97e8f4aa8d1aaf0beb65",
+        "elapsed_ms": 167.24,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V10",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The gate is closed.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The gate is open, not closed.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E",
+            "cited": true,
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00033008903847076,
+              "neutral": 0.0005188331706449389,
+              "contradiction": 0.9991511106491089
+            },
+            "elapsed_ms": 148.84
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "9c4223a911099b676426ca3e7f5d3b04100cc89ae217f0eaa1bbb5f9cde4ca53",
+        "elapsed_ms": 148.98,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V11",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The server restarted.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The server did not restart.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E",
+            "cited": true,
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0001852807472459972,
+              "neutral": 0.00037800153950229287,
+              "contradiction": 0.9994366765022278
+            },
+            "elapsed_ms": 201.18
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "ebf8dcb49af8e99797eca5e5eb8adc7820233d9c3598170ccd5ab8f35a0ac759",
+        "elapsed_ms": 201.34,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V12",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The payment is pending.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The payment is complete and no longer pending.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E",
+            "cited": true,
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.01728096976876259,
+              "neutral": 0.005187921226024628,
+              "contradiction": 0.9775311350822449
+            },
+            "elapsed_ms": 162.6
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "bac12259f934fc3b3d8c0c878365e4ace833e456a8b3c634b92a3bafce529504",
+        "elapsed_ms": 162.74,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V13",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The coat is green.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The coat is red, not green.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E",
+            "cited": true,
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0005056611844338477,
+              "neutral": 0.0012225126847624779,
+              "contradiction": 0.9982718229293823
+            },
+            "elapsed_ms": 181.79
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "e3e59baff5dec9432cb67b887b2bfc29618cda7c064430cc1b7c2e8d147a84ad",
+        "elapsed_ms": 181.93,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V14",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The archive was restored.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The archive was not restored.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E",
+            "cited": true,
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0001862898498075083,
+              "neutral": 0.0008007994620129466,
+              "contradiction": 0.9990129470825195
+            },
+            "elapsed_ms": 155.23
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "4785adb95f63d2f99908126755fe66be9c7c62141186533a3746535edc7d9b92",
+        "elapsed_ms": 155.37,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V15",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The parcel weighs 3 kg.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The same parcel weighs 8 kg, not 3 kg.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NUMERIC_CLAIM_REQUIRES_REVIEW"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [
+          "NUMERIC_CLAIM_REQUIRES_REVIEW"
+        ],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "93b157d59f489f07d6d7df9e86838115b77b848455f56e3bf90cafc434e9de6d",
+        "elapsed_ms": 0.12,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "V16",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The container holds 5 litres.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The container holds 2 litres, not 5 litres.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NUMERIC_CLAIM_REQUIRES_REVIEW"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [
+          "NUMERIC_CLAIM_REQUIRES_REVIEW"
+        ],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "e2835d9cc6b9311c26f796ba5e209c3efecfb67db0761bbe30371f78fb865bb1",
+        "elapsed_ms": 0.02,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "V17",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The transfer completed.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The draft contains \"The transfer completed\"; no transfer record exists.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "OBSERVATION_GAP_REQUIRES_REVIEW",
+          "QUOTED_TEXT_REQUIRES_REVIEW"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [
+          "OBSERVATION_GAP_REQUIRES_REVIEW",
+          "QUOTED_TEXT_REQUIRES_REVIEW"
+        ],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "b5a46b7c37923e5010837bc263b649a8e3283e89399d71287a14e5da37ed8bd5",
+        "elapsed_ms": 0.02,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V18",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The alarm sounded.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "No one observed the alarm during the test.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "OBSERVATION_GAP_REQUIRES_REVIEW"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [
+          "OBSERVATION_GAP_REQUIRES_REVIEW"
+        ],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "abfb15bafcaf87009b69724983fd092c0855db50655845a819fc6b0947eee843",
+        "elapsed_ms": 0.02,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V19",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The order arrived.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The order may have arrived; confirmation is unavailable.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "UNCERTAINTY_REQUIRES_REVIEW"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [
+          "UNCERTAINTY_REQUIRES_REVIEW"
+        ],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "fe5be11c4589ddf7543632e0097bd7927f06cc777de1e27333fb903e1a4013a1",
+        "elapsed_ms": 0.02,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V20",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "Nora drank tea.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "Omar drank tea. Nothing was recorded about Nora.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "SUBJECT_ALIGNMENT_REQUIRES_REVIEW"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [
+          "SUBJECT_ALIGNMENT_REQUIRES_REVIEW"
+        ],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "b454aa74cfa7eb4cde226e6f84b89f38a6856df874188b16be586d07476ee25e",
+        "elapsed_ms": 0.02,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V21",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The invoice was paid.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "An invoice template was printed.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E",
+            "cited": true,
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.0017200825968757272,
+              "neutral": 0.9699833393096924,
+              "contradiction": 0.02829655073583126
+            },
+            "elapsed_ms": 152.36
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "2a14039b01ec21c78914f48f4c40d9a475f43b83fb186ee9cf845a8ea66546cc",
+        "elapsed_ms": 152.46,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V22",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The server crashed.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The server case is black.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E",
+            "cited": true,
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.01065790094435215,
+              "neutral": 0.9571173191070557,
+              "contradiction": 0.03222477063536644
+            },
+            "elapsed_ms": 139.61
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "08d451ecc9da5e16090a91cdd216cce5778f514749a89d1244775977a4942b70",
+        "elapsed_ms": 139.74,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V23",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The delivery failed.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "There is no information about delivery.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "OBSERVATION_GAP_REQUIRES_REVIEW"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [
+          "OBSERVATION_GAP_REQUIRES_REVIEW"
+        ],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "8daaf8111a570ae226581d652689293986296bfe590153c044a1ead5e08f744c",
+        "elapsed_ms": 0.06,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "V24",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "C",
+          "text": "The tenant signed the lease.",
+          "source_ids": [
+            "E"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The tenant possibly signed it, but the signature is unconfirmed.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.3",
+        "status": "REVIEWED",
+        "claim_id": "C",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "UNCERTAINTY_REQUIRES_REVIEW"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "abstention_guards": [
+          "UNCERTAINTY_REQUIRES_REVIEW"
+        ],
+        "excluded_context_ids": [],
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "a02054b6284c7ebf01139fd97249de75944e38bdc82f380d36815555876aa940",
+        "elapsed_ms": 0.02,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    }
+  ],
+  "classification_system": "Lite 0.3 cue-based abstention + pinned NLI, not NLI-only",
+  "inference_pair_calls": 14,
+  "pre_inference_guard_abstentions": 10
+}

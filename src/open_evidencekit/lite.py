@@ -4,6 +4,7 @@ import hashlib
 import json
 import math
 import time
+from open_evidencekit.guards import guard_reasons
 
 THRESHOLD = 0.80  # Frozen before evaluation; softmax scores are not calibrated.
 VERDICTS = ('SUPPORTED','CONTRADICTED','INSUFFICIENT_EVIDENCE')
@@ -58,15 +59,23 @@ def review_lite(bundle, predictor):
     allowed=claim.get('allowed_source_types')
     wrong_source=[e['id'] for e in present if allowed and e['source_type'] not in allowed]
     checks={'all_source_ids_exist':not missing,'time_consistency':not wrong_time,'source_types_compatible':not wrong_source}
+    context=[e for key,e in lookup.items() if key not in refs]
+    excluded_context=[e['id'] for e in context if (bounds and not stamp(bounds['start'])<=stamp(e['observed_at'])<=stamp(bounds['end'])) or (allowed and e['source_type'] not in allowed)]
+    eligible=present+[e for e in context if e['id'] not in excluded_context]
+    guards=guard_reasons(claim,eligible)
     reasons=[]
     rows=[]
     if not all(checks.values()):
         status='INVALID_REFERENCE'
         verdict='INSUFFICIENT_EVIDENCE'
         reasons=['INVALID_REFERENCE']
+    elif guards:
+        status='REVIEWED'
+        verdict='INSUFFICIENT_EVIDENCE'
+        reasons=guards
     else:
         status='REVIEWED'
-        for e in present:
+        for e in eligible:
             raw=predictor.predict(e['text'],claim['text'])
             scores=raw['scores']
             if set(scores)!={'entailment','neutral','contradiction'} or any(not isinstance(v,(int,float)) or not math.isfinite(v) or not 0<=v<=1 for v in scores.values()) or abs(sum(scores.values())-1)>0.001:
@@ -74,9 +83,10 @@ def review_lite(bundle, predictor):
             label=max(scores,key=scores.get)
             relation=({'entailment':'SUPPORTED','contradiction':'CONTRADICTED'}.get(label,'INSUFFICIENT_EVIDENCE')
                       if scores[label]>=THRESHOLD else 'INSUFFICIENT_EVIDENCE')
-            rows.append({'evidence_id':e['id'],'verdict':relation,**raw})
-        relations={r['verdict'] for r in rows}
-        if {'SUPPORTED','CONTRADICTED'}<=relations:
+            rows.append({'evidence_id':e['id'],'cited':e['id'] in refs,'verdict':relation,**raw})
+        relations={r['verdict'] for r in rows if r['cited']}
+        context_contradiction=any(not r['cited'] and r['verdict']=='CONTRADICTED' for r in rows)
+        if {'SUPPORTED','CONTRADICTED'}<=relations or ('SUPPORTED' in relations and context_contradiction):
             verdict='INSUFFICIENT_EVIDENCE'; reasons=['CONFLICTING_EVIDENCE']
         elif claim.get('requires_temporal_aggregation',False):
             verdict='INSUFFICIENT_EVIDENCE'; reasons=['TEMPORAL_AGGREGATION_REQUIRES_REVIEW']
@@ -86,11 +96,11 @@ def review_lite(bundle, predictor):
             verdict='SUPPORTED'; reasons=['MODEL_ENTAILMENT']
         else:
             verdict='INSUFFICIENT_EVIDENCE'; reasons=['NEUTRAL_OR_LOW_CONFIDENCE']
-    return {'schema':'open-evidencekit-lite/0.2','status':status,'claim_id':claim['id'],
+    return {'schema':'open-evidencekit-lite/0.3','status':status,'claim_id':claim['id'],
             'verdict':verdict,'reason_codes':reasons,'human_review_required':True,
-            'rule_checks':checks,'missing_ids':missing,'out_of_range_ids':wrong_time,
+            'rule_checks':checks,'abstention_guards':guards,'excluded_context_ids':excluded_context,'missing_ids':missing,'out_of_range_ids':wrong_time,
             'incompatible_source_ids':wrong_source,'per_evidence':rows,
             'model':predictor.provenance if rows else None,'threshold':THRESHOLD,
             'input_sha256':hashlib.sha256(json.dumps(bundle,sort_keys=True).encode()).hexdigest(),
             'elapsed_ms':round((time.perf_counter()-started)*1000,2),
-            'limitations':'Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction.'}
+            'limitations':'Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction. Cue-based guards can miss risks and over-abstain; they are not semantic verification. Uncited eligible evidence can veto support but cannot establish it.'}

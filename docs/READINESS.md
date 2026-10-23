@@ -31,3 +31,7 @@ CI: https://github.com/freshcanibowl/EvidenceKit/actions/runs/40006218763 (unit 
 ## Wider stress update
 
 HOLD: Gate 13 semantic Macro-F1 0.758 / support precision 0.857. Additional 12-probe set 10/12, Macro-F1 0.792 / support precision 0.500. Both fail the original pair of numerical gates. Original smoke results remain unchanged. See STRESS_REVIEW.md. Browser initialization again timed out. The original public video predates this update. No submission is certified or published.
+
+## Lite 0.3 superseding repair status
+
+See GUARDED_REVIEW.md. Gate 13 regression Macro-F1 0.819 / support precision 1.000; new 24 authored probes 20/24, Macro-F1 0.838 / support precision 1.000. Both numerical targets pass on these measured sets. Guards trade coverage for precision and remain incomplete. Full acceptance, independent adjudication, visual QA and actual development-start evidence remain unresolved. No DEV post has been published. Latest video: demo-guarded-walkthrough.mp4 (captioned captured results, not browser recording). Historical HOLD results above remain as an audit trail.

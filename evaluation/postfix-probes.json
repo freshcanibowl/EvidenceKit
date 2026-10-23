@@ -1,0 +1,629 @@
+{
+  "notes": "24 new developer-authored validation probes, frozen after guard implementation but before first inference. Not independent or statistically held-out validation. Includes valid numeric and quoted statements to expose over-abstention. No tuning on this set.",
+  "cases": [
+    {
+      "case_id": "V01",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The receipt was emailed."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The receipt was emailed to the customer.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V02",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The gate is closed."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The gate is closed.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V03",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The server restarted."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The server restarted successfully.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V04",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The payment is pending."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The payment is still pending.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V05",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The coat is green."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The coat is green.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V06",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The archive was restored."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The archive was restored from backup.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V07",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The parcel weighs 3 kg."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The parcel weighs exactly 3 kg.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V08",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The label says \"fragile\"."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The label says \"fragile\".",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V09",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The receipt was emailed."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The receipt was not emailed.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V10",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The gate is closed."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The gate is open, not closed.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V11",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The server restarted."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The server did not restart.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V12",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The payment is pending."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The payment is complete and no longer pending.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V13",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The coat is green."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The coat is red, not green.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V14",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The archive was restored."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The archive was not restored.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V15",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The parcel weighs 3 kg."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The same parcel weighs 8 kg, not 3 kg.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V16",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The container holds 5 litres."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The container holds 2 litres, not 5 litres.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V17",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The transfer completed."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The draft contains \"The transfer completed\"; no transfer record exists.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V18",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The alarm sounded."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "No one observed the alarm during the test.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V19",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The order arrived."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The order may have arrived; confirmation is unavailable.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V20",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "Nora drank tea."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "Omar drank tea. Nothing was recorded about Nora.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V21",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The invoice was paid."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "An invoice template was printed.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V22",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The server crashed."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The server case is black.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V23",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The delivery failed."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "There is no information about delivery.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "V24",
+      "synthetic": true,
+      "input": {
+        "claim": {
+          "id": "C",
+          "text": "The tenant signed the lease."
+        },
+        "cited_evidence_ids": [
+          "E"
+        ],
+        "evidence": [
+          {
+            "id": "E",
+            "text": "The tenant possibly signed it, but the signature is unconfirmed.",
+            "source_type": "SYNTHETIC",
+            "observed_at": "2026-10-24T03:00:00Z"
+          }
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT"
+      },
+      "test_mode": "normal"
+    }
+  ]
+}

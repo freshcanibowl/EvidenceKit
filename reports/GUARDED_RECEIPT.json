@@ -1,0 +1,72 @@
+{
+  "version": "0.3.0",
+  "generated_at": "2026-10-23T19:20:25.150603+00:00",
+  "status": "EXPERIMENTAL_CANDIDATE",
+  "full_acceptance_established": false,
+  "unit_tests_passed": 50,
+  "api_examples_passed": 6,
+  "model_threshold_changed": false,
+  "original_benchmark_modified": false,
+  "source_scan_findings": [],
+  "measured_suites": {
+    "gate13_regression": {
+      "groups": {
+        "fault_injection": {
+          "total": 1,
+          "passed": 1
+        },
+        "reference_guard": {
+          "total": 9,
+          "passed": 9
+        },
+        "semantic": {
+          "total": 50,
+          "passed": 41
+        }
+      },
+      "macro_f1": 0.8188541018729699,
+      "support_precision": 1.0,
+      "inference_pair_calls": 35,
+      "pre_inference_guard_abstentions": 16,
+      "numerical_targets_met": true
+    },
+    "adversarial_regression": {
+      "groups": {
+        "semantic": {
+          "total": 12,
+          "passed": 11
+        }
+      },
+      "macro_f1": 0.9373219373219372,
+      "support_precision": 1.0,
+      "inference_pair_calls": 6,
+      "pre_inference_guard_abstentions": 6,
+      "numerical_targets_met": true
+    },
+    "new_authored_probes": {
+      "groups": {
+        "semantic": {
+          "total": 24,
+          "passed": 20
+        }
+      },
+      "macro_f1": 0.8380952380952381,
+      "support_precision": 1.0,
+      "inference_pair_calls": 14,
+      "pre_inference_guard_abstentions": 10,
+      "numerical_targets_met": true
+    }
+  },
+  "limitations": [
+    "Cue-based abstention is incomplete and reduces coverage.",
+    "New probes are developer-authored, not independent validation.",
+    "Original numeric/quoted cases may abstain rather than be verified.",
+    "Visual browser QA and development-start evidence remain unresolved."
+  ],
+  "dev_post_published": false,
+  "video": {
+    "file": "demo-guarded-walkthrough.mp4",
+    "kind": "captioned visualization of actual captured reports, not browser recording",
+    "sha256": "44d61c906678d00af59b64be8453399c3cde7b754b0c2481e1cdc166ac2da599"
+  }
+}

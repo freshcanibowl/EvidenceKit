@@ -2,7 +2,7 @@
 
 Let a local open model prepare your evidence review. One English claim + 1–5 synthetic evidence records → reference/time/source checks → pinned DeBERTa NLI → a review report you can inspect.
 
-**Status: EXPERIMENTAL — wider stress validation has NOT passed. Not yet a completed submission.** Public repository creation is verified (2026-10-23 18:41:24 UTC). Both initial commits fall within the challenge window; see `reports/repository-proof.json`. GitHub Actions passed for the implementation commit. Visual browser QA, independent label review and DEV publication remain incomplete; the wider performance gates failed. No production system was changed.
+**Status: Lite 0.3 experimental review candidate. Measured authored suites meet numerical targets after conservative abstention; full acceptance is not established.** Public repository creation is verified (2026-10-23 18:41:24 UTC). Both initial commits fall within the challenge window; see `reports/repository-proof.json`. GitHub Actions passed for the implementation commit. Visual browser QA, independent label review and DEV publication remain incomplete; the wider performance gates previously failed (historical results below); the repaired policy remains experimental. No production system was changed.
 
 ## Run (Python 3.11/3.12 recommended)
 
@@ -28,11 +28,25 @@ python scripts/repository_proof.py YOUR_OWNER/YOUR_REPO
 
 On Linux/macOS you may additionally set `HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 GRADIO_ANALYTICS_ENABLED=False`. On PowerShell use `$env:HF_HUB_OFFLINE='1'` and the equivalent for the other variables. `offline_check` blocks Python socket connects during model loading and inference. This is not a full OS air-gap audit.
 
-## Additional stress results
+## Lite 0.3 repair results
+
+The new review policy routes numeric claims, quoted evidence and selected risk cues to human review before inference. It also checks eligible uncited context for counterevidence. These are incomplete English heuristics, not numerical verification or full entity alignment. Model/revision and score threshold are unchanged.
+
+| Dataset | Semantic matches | Macro-F1 | Support precision |
+|---|---:|---:|---:|
+| Gate 13 regression | 41/50 | 0.819 | 1.000 |
+| Original adversarial regression | 11/12 | 0.937 | 1.000 |
+| New authored validation probes | 20/24 | 0.838 | 1.000 |
+
+The four new-probe errors are abstentions on numeric/quoted statements. This improves precision at the cost of coverage, not by teaching the model arithmetic. These are small developer-authored sets, not independent validation. **50 tests pass.** See [repair review](docs/GUARDED_REVIEW.md), `reports/*postfix.json` and `reports/postfix-validation.json`.
+
+Latest video: [0.3 captioned results walkthrough](demo-guarded-walkthrough.mp4), not a browser recording. The original Build 3 video is historical.
+
+## Historical pre-repair stress results
 
 Gate 13 candidates: **37/50 semantic correct**, Macro-F1 **0.758**, support precision **0.857**. Nine reference errors were blocked, and one intentional model-error injection raised as expected. Twelve additional adversarial probes: **10/12**, Macro-F1 **0.792**, support precision **0.500** (two predicted supports). Neither new set passes both frozen numerical targets. No thresholds or labels were changed. See [full stress review](docs/STRESS_REVIEW.md) and raw reports; labels remain unadjudicated.
 
-The UI now warns about these limits and includes quotation and wrong-entity failures. The public MP4 remains the original Build 3 walkthrough and does not show these new measurements; do not present it as the latest evaluation.
+The UI now warns about these limits and includes quotation and wrong-entity failures. The original public MP4 is the historical Build 3 walkthrough. Use demo-guarded-walkthrough.mp4 for the 0.3 policy results.
 
 ## Initial smoke results
 
@@ -55,6 +69,8 @@ Output verdicts: `SUPPORTED`, `CONTRADICTED`, `INSUFFICIENT_EVIDENCE`. Invalid m
 
 A caller's source metadata is not authenticated. A model relation is not real-world verification. No clinical, legal or regulatory determination is made. JSON only; no RAG, OCR, uploaded documents, tools, external URL fetching or code execution. UI reports remain as temporary local JSON files until removed. Default loopback binding is for single-user local use only.
 
+Eligible uncited records can veto cited support but cannot establish a claim. Guard reasons are in `abstention_guards`; no model scores are reported for skipped inference. The 0.3 report schema replaces 0.2 for the Lite demo.
+
 The old `evidencekit` CLI and Qwen checklist adapter remain as explicitly legacy code; the new Lite demo does not use user-supplied `stance` or the Qwen adapter.
 
 ## Open innovation and attribution
@@ -72,8 +88,8 @@ Implementation commit: `65789dfb354c3be06f5e2f8ffa927e4426e4e1a0`. All 49 publis
 ## Public links
 
 - Code: https://github.com/freshcanibowl/EvidenceKit
-- Results demo video (captioned, not a browser recording): https://github.com/freshcanibowl/EvidenceKit/blob/main/demo-results-walkthrough.mp4
-- Direct MP4: https://raw.githubusercontent.com/freshcanibowl/EvidenceKit/main/demo-results-walkthrough.mp4
+- Results demo video (captioned, not a browser recording): https://github.com/freshcanibowl/EvidenceKit/blob/main/demo-guarded-walkthrough.mp4
+- Direct MP4: https://raw.githubusercontent.com/freshcanibowl/EvidenceKit/main/demo-guarded-walkthrough.mp4
 
 ## Submission materials
 
