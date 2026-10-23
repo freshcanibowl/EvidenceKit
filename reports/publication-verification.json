@@ -1,0 +1,25 @@
+{
+  "implementation_commit": "65789dfb354c3be06f5e2f8ffa927e4426e4e1a0",
+  "verified_files": 49,
+  "git_blob_hash_mismatches": [],
+  "github_actions": {
+    "run_id": 40006218763,
+    "conclusion": "success",
+    "url": "https://github.com/freshcanibowl/EvidenceKit/actions/runs/40006218763",
+    "steps_verified": [
+      "checkout",
+      "setup-python",
+      "install test dependencies",
+      "python -m pytest -q"
+    ]
+  },
+  "local_unit_tests": "42 passed",
+  "source_archive_sha256": "0dbcb781c6a0dd9a2446f34c7058ff481826f1842cf7b05e21d7a1f425337901",
+  "scope": "Initial Build 3 implementation publication. This report is added in a subsequent docs commit. CI runs unit tests only, not model inference.",
+  "remaining": [
+    "development-start evidence beyond GitHub timestamps",
+    "visual browser QA",
+    "adversarial evaluation coverage",
+    "DEV publication"
+  ]
+}

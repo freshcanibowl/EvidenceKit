@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-10-23T18:48:08.601043+00:00",
+  "repository": "freshcanibowl/EvidenceKit",
+  "url": "https://github.com/freshcanibowl/EvidenceKit",
+  "created_at": "2026-10-23T18:41:24Z",
+  "default_branch": "main",
+  "public": true,
+  "window_start": "2026-10-19T16:00:00+00:00",
+  "window_end": "2026-10-26T06:59:00+00:00",
+  "repository_created_in_window": true,
+  "default_branch_commits": [
+    {
+      "sha": "65789dfb354c3be06f5e2f8ffa927e4426e4e1a0",
+      "url": "https://github.com/freshcanibowl/EvidenceKit/commit/65789dfb354c3be06f5e2f8ffa927e4426e4e1a0",
+      "author_date": "2026-10-23T18:47:30Z",
+      "committer_date": "2026-10-23T18:47:30Z"
+    },
+    {
+      "sha": "4944dce444a30c3777385a0f4bc6bee74710de1a",
+      "url": "https://github.com/freshcanibowl/EvidenceKit/commit/4944dce444a30c3777385a0f4bc6bee74710de1a",
+      "author_date": "2026-10-23T18:45:38Z",
+      "committer_date": "2026-10-23T18:45:38Z"
+    }
+  ],
+  "all_listed_commit_dates_in_window": true,
+  "limitations": "Read-only metadata for current default branch, not proof of original authorship or all branches. Commit timestamps are user-controlled; organizer decides eligibility. No dates were rewritten."
+}

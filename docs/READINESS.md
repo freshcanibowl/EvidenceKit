@@ -11,7 +11,7 @@
 
 ## Remaining gates
 1. Public repository confirmed: https://github.com/freshcanibowl/EvidenceKit. Created 2026-10-23 18:41:24 UTC (Oct 24 02:41:24 MYT), within the challenge window. Initial inspection found it empty; Build 3 is being published without backdating. See reports/repository-initial-inspection.json and the live GitHub commit history. Repository metadata does not establish the actual start of development.
-2. Run `python scripts/repository_proof.py owner/repo` from the project root. Review actual GitHub created_at, default-branch commits and originality; timestamps alone do not prove authorship. Do not rewrite history.
+2. Executed `python scripts/repository_proof.py freshcanibowl/EvidenceKit`. reports/repository-proof.json records repository creation and both initial commits within the window. It is a snapshot at implementation commit 65789dfb354c3be06f5e2f8ffa927e4426e4e1a0; this documentation commit follows it. GitHub Actions run 40006218763 passed; 49 uploaded file blob hashes matched local files. Timestamps alone do not prove development start or authorship.
 3. Visual browser QA not performed: Browser runtime initialization timed out. API checks do not prove layout, keyboard interaction, or console health.
 4. Model metrics pass the two numerical targets on this small synthetic suite, but the frozen spec's adversarial coverage is incomplete. Do not claim full SG acceptance, production readiness or independent validation.
 5. No human time-savings evidence. Do not publish a savings percentage or include an empirical Lazy Payoff claim.
@@ -21,3 +21,9 @@
 Window: 2026-10-19 16:00 UTC through 2026-10-26 06:59 UTC (Malaysia: Oct 20 00:00 through Oct 26 14:59). Source: https://dev.to/page/hacktoberfest-week3-2026-10-19-contest-rules
 
 No automatic claim of eligibility, cloud deployment or final DEV submission. GitHub source publication is separate from contest submission.
+
+## Public verification
+
+Implementation commit: https://github.com/freshcanibowl/EvidenceKit/commit/65789dfb354c3be06f5e2f8ffa927e4426e4e1a0
+
+CI: https://github.com/freshcanibowl/EvidenceKit/actions/runs/40006218763 (unit tests only; local model inference is evidenced separately).

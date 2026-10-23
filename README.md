@@ -2,7 +2,7 @@
 
 Let a local open model prepare your evidence review. One English claim + 1–5 synthetic evidence records → reference/time/source checks → pinned DeBERTa NLI → a review report you can inspect.
 
-**Status: real NLI and Gradio API exercised; not yet a completed submission.** Public repository creation is verified (2026-10-23 18:41:24 UTC). Commit chronology is recorded after initial publication. Visual browser QA, adversarial evaluation coverage and DEV publication remain incomplete. No production system was changed.
+**Status: real NLI and Gradio API exercised; not yet a completed submission.** Public repository creation is verified (2026-10-23 18:41:24 UTC). Both initial commits fall within the challenge window; see `reports/repository-proof.json`. GitHub Actions passed for the implementation commit. Visual browser QA, adversarial evaluation coverage and DEV publication remain incomplete. No production system was changed.
 
 ## Run (Python 3.11/3.12 recommended)
 
@@ -59,6 +59,10 @@ Transformers (Apache-2.0), PyTorch (BSD-style), Gradio (Apache-2.0), SentencePie
 
 The open model performs the core semantic relation task. It can run after initial setup without a hosted inference API, and the adapter, thresholds and abstention rules can be inspected. A closed API could perform NLI too; the benefits demonstrated here are control of weights, local processing and inspectability, not exclusive capability or superior accuracy.
 
+## Publication verification
+
+Implementation commit: `65789dfb354c3be06f5e2f8ffa927e4426e4e1a0`. All 49 published file blob hashes matched local Build 3 publication files. [GitHub Actions tests passed](https://github.com/freshcanibowl/EvidenceKit/actions/runs/40006218763). This CI runs unit tests; it does not download or evaluate the model. Creation/commit metadata does not independently prove the actual start of development. See `reports/repository-proof.json` and `reports/publication-verification.json`.
+
 ## Public links
 
 - Code: https://github.com/freshcanibowl/EvidenceKit
@@ -67,7 +71,7 @@ The open model performs the core semantic relation task. It can run after initia
 
 ## Submission materials
 
-- `docs/DEV_SUBMISSION_DRAFT.md` — English article with public-link blockers visibly marked.
+- `docs/DEV_SUBMISSION_DRAFT.md` — English article with remaining review gates visibly marked.
 - `docs/VIDEO_SCRIPT.md` — walkthrough and browser recording plan.
 - `demo-results-walkthrough.mp4` — captioned visualization of captured real model outputs; **not a browser screen recording**.
 - `docs/READINESS.md` — current completed and blocked gates.
