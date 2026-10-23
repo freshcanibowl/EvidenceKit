@@ -1,0 +1,94 @@
+{
+  "generated_at": "2026-10-23T18:54:59.689664+00:00",
+  "dataset_sha256": "bd94727b8e699d49e55abb9a9c77fc7b7a84f1b27a0b666e08c0f2bc1dbfa109",
+  "model": {
+    "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+    "device": "cpu",
+    "local_files_only": true,
+    "trust_remote_code": false
+  },
+  "threshold": 0.8,
+  "cases": 60,
+  "passed_under_declared_adapter": 47,
+  "groups": {
+    "fault_injection": {
+      "total": 1,
+      "passed": 1
+    },
+    "reference_guard": {
+      "total": 9,
+      "passed": 9
+    },
+    "semantic": {
+      "total": 50,
+      "passed": 37
+    }
+  },
+  "semantic_macro_f1": 0.7579847053531265,
+  "semantic_supported_precision": 0.8571428571428571,
+  "semantic_matrix": {
+    "SUPPORTED": {
+      "SUPPORTED": 12,
+      "CONTRADICTED": 0,
+      "INSUFFICIENT_EVIDENCE": 0,
+      "ERROR": 0
+    },
+    "CONTRADICTED": {
+      "SUPPORTED": 1,
+      "CONTRADICTED": 12,
+      "INSUFFICIENT_EVIDENCE": 0,
+      "ERROR": 0
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "SUPPORTED": 1,
+      "CONTRADICTED": 11,
+      "INSUFFICIENT_EVIDENCE": 13,
+      "ERROR": 0
+    }
+  },
+  "semantic_metrics": {
+    "SUPPORTED": {
+      "precision": 0.8571428571428571,
+      "f1": 0.9230769230769231,
+      "expected_count": 12
+    },
+    "CONTRADICTED": {
+      "precision": 0.5217391304347826,
+      "f1": 0.6666666666666666,
+      "expected_count": 13
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "precision": 1.0,
+      "f1": 0.6842105263157895,
+      "expected_count": 25
+    }
+  },
+  "failed_case_ids": [
+    "T04",
+    "T06",
+    "T08",
+    "T13",
+    "T16",
+    "T38",
+    "T53",
+    "T54",
+    "T55",
+    "T56",
+    "T57",
+    "T58",
+    "T59"
+  ],
+  "elapsed_seconds": 11.0,
+  "full_original_contract_accepted": false,
+  "adapter_disclosures": [
+    "Input cited_evidence_ids maps to claim.source_ids; evidence text and candidate labels unchanged.",
+    "INSUFFICIENT maps to INSUFFICIENT_EVIDENCE. Missing references assessed as blocked before inference, not exact original status/verdict equality.",
+    "T20 intentionally injects an exception; it is not real model inference and is excluded from semantic scores.",
+    "No added temporal metadata, numeric calculators or source-quote rules. Source_id/finalized/source_quote are not enforced by Lite.",
+    "Only cited evidence is evaluated; uncited conflicting sources are outside Lite current contract.",
+    "All reports require human review; original expected review_required=false is not accepted as a product change.",
+    "Candidate labels are authored and unadjudicated; metrics do not prove generalization. Original benchmark remains unchanged.",
+    "Upstream evaluate_predictions.py was not used: it combines fault injection with invalid-input accounting and omits semantic mismatches from failed_case_ids."
+  ]
+}

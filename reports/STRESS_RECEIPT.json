@@ -1,0 +1,44 @@
+{
+  "checked_at": "2026-10-23T18:58:09.364583+00:00",
+  "status": "HOLD",
+  "engine_threshold_changed": false,
+  "original_benchmark_changed": false,
+  "unit_tests_passed": 42,
+  "gradio_api_examples_passed": 6,
+  "browser_visual_qa": "BLOCKED: JsKernelInitializationTimeoutError",
+  "semantic_results": {
+    "gate13": {
+      "macro_f1": 0.7579847053531265,
+      "supported_precision": 0.8571428571428571,
+      "groups": {
+        "fault_injection": {
+          "total": 1,
+          "passed": 1
+        },
+        "reference_guard": {
+          "total": 9,
+          "passed": 9
+        },
+        "semantic": {
+          "total": 50,
+          "passed": 37
+        }
+      },
+      "performance_thresholds_met": false
+    },
+    "adversarial": {
+      "macro_f1": 0.791919191919192,
+      "supported_precision": 0.5,
+      "groups": {
+        "semantic": {
+          "total": 12,
+          "passed": 10
+        }
+      },
+      "performance_thresholds_met": false
+    }
+  },
+  "original_contract_accepted": false,
+  "dev_published": false,
+  "public_video": "Original Build 3 results walkthrough; does not include later stress measurements"
+}

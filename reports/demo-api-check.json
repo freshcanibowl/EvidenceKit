@@ -32,7 +32,7 @@
               "neutral": 0.0053670709021389484,
               "contradiction": 0.0006232617306523025
             },
-            "elapsed_ms": 194.86
+            "elapsed_ms": 278.79
           }
         ],
         "model": {
@@ -44,7 +44,7 @@
         },
         "threshold": 0.8,
         "input_sha256": "86c12ba03c08d0bf5a5633bf6e26ee1eff46f27f026d35dbd18924e234592db4",
-        "elapsed_ms": 194.99,
+        "elapsed_ms": 279.0,
         "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
       },
       "download_exists": true
@@ -78,7 +78,7 @@
               "neutral": 0.00046916535939089954,
               "contradiction": 0.9993081092834473
             },
-            "elapsed_ms": 250.65
+            "elapsed_ms": 261.04
           }
         ],
         "model": {
@@ -90,7 +90,7 @@
         },
         "threshold": 0.8,
         "input_sha256": "77d3b176427b70bccca8d42d0fc88973f056820698782bfba775ebb7821a817a",
-        "elapsed_ms": 250.77,
+        "elapsed_ms": 261.17,
         "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
       },
       "download_exists": true
@@ -124,7 +124,7 @@
               "neutral": 0.9970163106918335,
               "contradiction": 0.0009339507087133825
             },
-            "elapsed_ms": 162.35
+            "elapsed_ms": 216.91
           }
         ],
         "model": {
@@ -136,7 +136,7 @@
         },
         "threshold": 0.8,
         "input_sha256": "0001d49952e0f72e39eb96d01f22ad10f41548a1af4f7ee589c22ac48681e2d5",
-        "elapsed_ms": 162.45,
+        "elapsed_ms": 217.04,
         "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
       },
       "download_exists": true
@@ -170,7 +170,7 @@
               "neutral": 0.0613807812333107,
               "contradiction": 0.9378963708877563
             },
-            "elapsed_ms": 165.45
+            "elapsed_ms": 237.97
           }
         ],
         "model": {
@@ -182,7 +182,99 @@
         },
         "threshold": 0.8,
         "input_sha256": "a619b09390511060c6da4a00b449cd5915aed390bff18822e81903bb2aa321a5",
-        "elapsed_ms": 165.55,
+        "elapsed_ms": 238.08,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "download_exists": true
+    },
+    {
+      "example": "Known failure: quotation",
+      "summary": "SUPPORTED \u2014 MODEL_ENTAILMENT. Human review required.",
+      "report": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.90508633852005,
+              "neutral": 0.08420157432556152,
+              "contradiction": 0.010712084360420704
+            },
+            "elapsed_ms": 210.69
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "996668b3d6d8cfa5a74ff784dbca9de0d71f1c7187d454e4e1854fa29d4bc505",
+        "elapsed_ms": 210.79,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "download_exists": true
+    },
+    {
+      "example": "Known failure: wrong entity",
+      "summary": "CONTRADICTED \u2014 MODEL_CONTRADICTION. Human review required.",
+      "report": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "C-1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "E-1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0016694600926712155,
+              "neutral": 0.006836106069386005,
+              "contradiction": 0.9914944171905518
+            },
+            "elapsed_ms": 211.43
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "2312060c96f95e756b5f8f31cf901cd89bfcd91389dd6e35992f4d1cb3be1448",
+        "elapsed_ms": 211.54,
         "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
       },
       "download_exists": true

@@ -2,7 +2,7 @@
 
 Let a local open model prepare your evidence review. One English claim + 1–5 synthetic evidence records → reference/time/source checks → pinned DeBERTa NLI → a review report you can inspect.
 
-**Status: real NLI and Gradio API exercised; not yet a completed submission.** Public repository creation is verified (2026-10-23 18:41:24 UTC). Both initial commits fall within the challenge window; see `reports/repository-proof.json`. GitHub Actions passed for the implementation commit. Visual browser QA, adversarial evaluation coverage and DEV publication remain incomplete. No production system was changed.
+**Status: EXPERIMENTAL — wider stress validation has NOT passed. Not yet a completed submission.** Public repository creation is verified (2026-10-23 18:41:24 UTC). Both initial commits fall within the challenge window; see `reports/repository-proof.json`. GitHub Actions passed for the implementation commit. Visual browser QA, independent label review and DEV publication remain incomplete; the wider performance gates failed. No production system was changed.
 
 ## Run (Python 3.11/3.12 recommended)
 
@@ -28,7 +28,13 @@ python scripts/repository_proof.py YOUR_OWNER/YOUR_REPO
 
 On Linux/macOS you may additionally set `HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 GRADIO_ANALYTICS_ENABLED=False`. On PowerShell use `$env:HF_HUB_OFFLINE='1'` and the equivalent for the other variables. `offline_check` blocks Python socket connects during model loading and inference. This is not a full OS air-gap audit.
 
-## Actual results
+## Additional stress results
+
+Gate 13 candidates: **37/50 semantic correct**, Macro-F1 **0.758**, support precision **0.857**. Nine reference errors were blocked, and one intentional model-error injection raised as expected. Twelve additional adversarial probes: **10/12**, Macro-F1 **0.792**, support precision **0.500** (two predicted supports). Neither new set passes both frozen numerical targets. No thresholds or labels were changed. See [full stress review](docs/STRESS_REVIEW.md) and raw reports; labels remain unadjudicated.
+
+The UI now warns about these limits and includes quotation and wrong-entity failures. The public MP4 remains the original Build 3 walkthrough and does not show these new measurements; do not present it as the latest evaluation.
+
+## Initial smoke results
 
 - 42 unit/regression tests passed at build time (25 legacy + 17 Lite).
 - Frozen 60-case synthetic suite: 55 expected outcomes, 60 completed without errors.
@@ -36,7 +42,7 @@ On Linux/macOS you may additionally set `HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
 - 15 invalid-reference/time/source cases: all blocked before model calls. These are excluded from semantic metrics.
 - Median semantic call: 160.84 ms on this Linux CPU environment; cold model load about 3.03 seconds in the initial evaluation, before startup checksum verification was added. Do not generalize to other devices.
 - Five neutral/insufficient cases were wrongly classified as contradiction. The UI includes a known failure example. This is not an independently held-out benchmark or evidence of production accuracy.
-- Four Gradio HTTP/API examples returned reports and downloadable JSON. Visual browser QA was blocked by a browser initialization timeout.
+- The initial four Gradio HTTP/API examples returned reports and downloadable JSON; the expanded demo has two additional known-failure examples, with latest API results in `reports/demo-api-check.json`. Visual browser QA was blocked by a browser initialization timeout.
 - No human time-savings experiment has been performed.
 
 Full raw results, model revision and checksums: `reports/`. The benchmark and threshold were frozen before the first evaluation. Scores are uncalibrated softmax outputs, not probabilities that a fact is true.

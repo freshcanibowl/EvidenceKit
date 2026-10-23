@@ -8,6 +8,8 @@ tags: devchallenge, hf26challenge, opensource, ai
 
 > Draft gate: review the public code/video links below, confirm development-window eligibility, perform visual QA, and confirm this account has not already entered this challenge before publishing. This draft has not been submitted.
 
+> Experimental status: a wider stress evaluation failed the original performance gates. This is a prototype that prepares model suggestions for human review, not an accepted evidence-verification system.
+
 ## What I Built
 
 A report says an attachment arrived. The underlying record says it did not. Before I can trust the report, I have to compare the claim with the record myself.
@@ -54,7 +56,7 @@ The application does not silently truncate long inputs, download models during a
 
 I used AI assistance to extend an independent Python scaffold, write checks, and inspect results. The build does not import private application code or production data.
 
-### What the test actually showed
+### What the initial smoke test showed
 
 Before running inference, I froze 60 synthetic cases and saved their SHA-256 hash. Fifteen exercise reference, time and source rules. The remaining 45 test semantic relations: 15 support, 15 contradiction, and 15 insufficient-evidence examples.
 
@@ -79,6 +81,16 @@ The model called that pair a contradiction. It made the same kind of mistake on 
 
 I kept every failed result and added the cat example to the interface. This is why the output says human review is required, and why I describe the tool as an evidence reviewer rather than a truth detector. The current synthetic suite also does not complete all the adversarial coverage envisioned in the original specification.
 
+### The harder tests changed the conclusion
+
+I then ran an existing 60-case candidate pack through an explicitly documented schema adapter. Its 50 semantic cases yielded 37 correct predictions, Macro-F1 0.758 and support precision 0.857. Nine missing-reference cases were blocked and one deliberate model-error injection raised an exception; these are excluded from semantic metrics.
+
+I separately froze 12 adversarial probes before running them: 10 were correct, but support precision was only 0.500 from two predicted supports. The model marked a quoted payment claim as supported despite the lack of payment records. It also confused evidence about one pet with contradiction of a claim about another.
+
+Neither new set passed both of my original acceptance thresholds. The labels are authored and not independently adjudicated; the temporal candidates in particular need review. I kept the original labels, predictions and failures, changed no threshold, and added visible warnings and failure examples to the demo. [The complete stress review](https://github.com/freshcanibowl/EvidenceKit/blob/main/docs/STRESS_REVIEW.md) explains the adapter and its limits.
+
+The linked video is the original Build 3 results walkthrough. It does not show these later measurements. This is an experimental assistant for preparing review suggestions, with failed robustness gates openly documented.
+
 ## Why Does Open Innovation Matter?
 
 For this task I want control over where the evidence goes and how the model's result is handled.
@@ -91,6 +103,6 @@ A closed API could perform this task too. What this approach gives me is a local
 
 ## What I Would Improve Next
 
-I would add independently authored adversarial cases, test numeric and temporal claims more rigorously, and run a timed comparison of manual review versus assisted review. I would also complete visual and keyboard QA on the local interface; current verification covers HTTP/API interactions and report downloads.
+I would independently adjudicate the stress labels, add reliable numeric/entity/quotation checks or abstention, and run a timed comparison of manual review versus assisted review. I would also complete visual and keyboard QA on the local interface; current verification covers HTTP/API interactions and report downloads.
 
 For now, the payoff is modest and concrete: the repetitive comparison and report preparation are automated, while the evidence IDs, model scores and mistakes remain available for a person to inspect.

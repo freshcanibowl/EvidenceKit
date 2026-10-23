@@ -1,0 +1,4515 @@
+{
+  "generated_at": "2026-10-23T18:54:59.689664+00:00",
+  "dataset_sha256": "bd94727b8e699d49e55abb9a9c77fc7b7a84f1b27a0b666e08c0f2bc1dbfa109",
+  "model": {
+    "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+    "device": "cpu",
+    "local_files_only": true,
+    "trust_remote_code": false
+  },
+  "threshold": 0.8,
+  "cases": 60,
+  "passed_under_declared_adapter": 47,
+  "groups": {
+    "fault_injection": {
+      "total": 1,
+      "passed": 1
+    },
+    "reference_guard": {
+      "total": 9,
+      "passed": 9
+    },
+    "semantic": {
+      "total": 50,
+      "passed": 37
+    }
+  },
+  "semantic_macro_f1": 0.7579847053531265,
+  "semantic_supported_precision": 0.8571428571428571,
+  "semantic_matrix": {
+    "SUPPORTED": {
+      "SUPPORTED": 12,
+      "CONTRADICTED": 0,
+      "INSUFFICIENT_EVIDENCE": 0,
+      "ERROR": 0
+    },
+    "CONTRADICTED": {
+      "SUPPORTED": 1,
+      "CONTRADICTED": 12,
+      "INSUFFICIENT_EVIDENCE": 0,
+      "ERROR": 0
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "SUPPORTED": 1,
+      "CONTRADICTED": 11,
+      "INSUFFICIENT_EVIDENCE": 13,
+      "ERROR": 0
+    }
+  },
+  "semantic_metrics": {
+    "SUPPORTED": {
+      "precision": 0.8571428571428571,
+      "f1": 0.9230769230769231,
+      "expected_count": 12
+    },
+    "CONTRADICTED": {
+      "precision": 0.5217391304347826,
+      "f1": 0.6666666666666666,
+      "expected_count": 13
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "precision": 1.0,
+      "f1": 0.6842105263157895,
+      "expected_count": 25
+    }
+  },
+  "failed_case_ids": [
+    "T04",
+    "T06",
+    "T08",
+    "T13",
+    "T16",
+    "T38",
+    "T53",
+    "T54",
+    "T55",
+    "T56",
+    "T57",
+    "T58",
+    "T59"
+  ],
+  "elapsed_seconds": 11.0,
+  "full_original_contract_accepted": false,
+  "adapter_disclosures": [
+    "Input cited_evidence_ids maps to claim.source_ids; evidence text and candidate labels unchanged.",
+    "INSUFFICIENT maps to INSUFFICIENT_EVIDENCE. Missing references assessed as blocked before inference, not exact original status/verdict equality.",
+    "T20 intentionally injects an exception; it is not real model inference and is excluded from semantic scores.",
+    "No added temporal metadata, numeric calculators or source-quote rules. Source_id/finalized/source_quote are not enforced by Lite.",
+    "Only cited evidence is evaluated; uncited conflicting sources are outside Lite current contract.",
+    "All reports require human review; original expected review_required=false is not accepted as a product change.",
+    "Candidate labels are authored and unadjudicated; metrics do not prove generalization. Original benchmark remains unchanged.",
+    "Upstream evaluate_predictions.py was not used: it combines fault injection with invalid-input accounting and omits semantic mismatches from failed_case_ids."
+  ],
+  "results": [
+    {
+      "case_id": "T01",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika approached the food bowl.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "At 08:00, Pika approached the food bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T01",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9983086585998535,
+              "neutral": 0.0013698881957679987,
+              "contradiction": 0.00032140008988790214
+            },
+            "elapsed_ms": 290.1
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "a2bd974a770fb55a0bf753ff62983f96a2756fcd22881ed319996648b2d2b9ab",
+        "elapsed_ms": 290.27,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T02",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika went near his bowl.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "At 08:00, Pika approached the food bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T02",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9745264649391174,
+              "neutral": 0.022692304104566574,
+              "contradiction": 0.0027811292093247175
+            },
+            "elapsed_ms": 238.28
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "27fbee329e755847d82764fc02872c75580b473283b2ecaed0737b4d36491b58",
+        "elapsed_ms": 238.39,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T03",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate breakfast.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika did not eat breakfast.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T03",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00028628011932596564,
+              "neutral": 0.000353451119735837,
+              "contradiction": 0.9993602633476257
+            },
+            "elapsed_ms": 205.9
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "2ae33dfe9fada024368a1ecf1e7819240f0521bb1b1892cc91fc5cb585d43f9d",
+        "elapsed_ms": 206.02,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T04",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate breakfast.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika walked in the garden at 08:00.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T04",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.002711725886911154,
+              "neutral": 0.11227964609861374,
+              "contradiction": 0.8850085735321045
+            },
+            "elapsed_ms": 209.01
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "b1b7958439dee2a7c7aa34b37375fdbe0dfc8136201a37922466b39d365976db",
+        "elapsed_ms": 209.12,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "T05",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "SOURCE_NOT_FOUND"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika approached the bowl.",
+          "language": "en",
+          "source_ids": [
+            "e9"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika approached the bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T05",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": false,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [
+          "e9"
+        ],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "966bbf59c255ae9ebc505b13ecba88aaa64cc5901fe7aa4dfd0b728691468d78",
+        "elapsed_ms": 0.04,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "reference_guard",
+      "pass": true
+    },
+    {
+      "case_id": "T06",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "CONFLICTING_SOURCES"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate breakfast.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika ate breakfast.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T06",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          },
+          {
+            "id": "e2",
+            "text": "Pika did not eat breakfast.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T06-conflict",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9983727335929871,
+              "neutral": 0.0013304902240633965,
+              "contradiction": 0.00029688337235711515
+            },
+            "elapsed_ms": 174.37
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "d0571e7f56c0340dd5ab5dca8dce47e09d550d68cdcc3a871b895a2d7513d9aa",
+        "elapsed_ms": 174.47,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "T07",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "NUMERIC_MATCH"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Weight increased by 1.2 kg.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Monday 68.2 kg; Wednesday 69.4 kg.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T07",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9363365173339844,
+              "neutral": 0.04366326332092285,
+              "contradiction": 0.020000215619802475
+            },
+            "elapsed_ms": 194.19
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "49cd9abaef5d202f78e78cb59ec9ec6ffab3c239cbcdfa829f5008599ff24112",
+        "elapsed_ms": 194.29,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T08",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "NUMERIC_MISMATCH"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Weight increased by 2.2 kg.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Monday 68.2 kg; Wednesday 69.4 kg.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T08",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.934378981590271,
+              "neutral": 0.042775221168994904,
+              "contradiction": 0.022845787927508354
+            },
+            "elapsed_ms": 190.66
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "85cc587b11d277382e78ce0a468f5e41b086390328a137a061162d3f53116c09",
+        "elapsed_ms": 190.76,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "T09",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "UNIT_MISMATCH"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "The same reading was 10 lb.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "The reading was 10 kg for the same measurement.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T09",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0015851074131205678,
+              "neutral": 0.0017363583901897073,
+              "contradiction": 0.9966785907745361
+            },
+            "elapsed_ms": 181.18
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "bf494cc14d02d666d4ea7448edd9337dc829a422be9fbde334a08b5420792c99",
+        "elapsed_ms": 181.29,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T10",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "TEMPORAL_MISMATCH"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "The observation occurred on Monday.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "The observation occurred on Wednesday for the same event.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T10",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00014584850578103215,
+              "neutral": 0.00040528239333070815,
+              "contradiction": 0.999448835849762
+            },
+            "elapsed_ms": 184.52
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "a3efc91d5ecad757f12b6de32726242a38615433bc9cc81134a64e2a83a759c4",
+        "elapsed_ms": 184.63,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T11",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "SINGLE_OBSERVATION_NOT_TREND"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Loose stool persisted for weeks.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "One loose stool was reported on October 12.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T11",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.0004924440872855484,
+              "neutral": 0.908749520778656,
+              "contradiction": 0.09075794368982315
+            },
+            "elapsed_ms": 180.24
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "f3f3e1d1de784c9cc6e4c75660c6c9138a7738c093845d1a4d54415a2fca5624",
+        "elapsed_ms": 180.35,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T12",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SOURCE_STATUS_CONFLICT"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "A veterinarian diagnosed an allergy.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Owner suspects an allergy; vet record states no allergy diagnosis.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T12",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0010274848900735378,
+              "neutral": 0.004305813927203417,
+              "contradiction": 0.9946666955947876
+            },
+            "elapsed_ms": 183.42
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "346ce0ac0f0175c7e837a54072df57024fbc3e5af862928feb7ab09023805f9d",
+        "elapsed_ms": 183.52,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T13",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika finished his meal.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika approached the bowl; no eating contact observed.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T13",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0002191060339100659,
+              "neutral": 0.00216984492726624,
+              "contradiction": 0.9976110458374023
+            },
+            "elapsed_ms": 230.95
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "7399ae7eb9efdfe9499d96f1b2c9b38b56033fd8d83c32cf067891676dcbbfe8",
+        "elapsed_ms": 231.07,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "T14",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika refused food.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "No meal video was recorded.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T14",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.026413459330797195,
+              "neutral": 0.9709364175796509,
+              "contradiction": 0.002650107489898801
+            },
+            "elapsed_ms": 237.94
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "8d6c828c744de3ae78ca4167a0b367cb6ca43b726dadcd7e1cc27203d1baffbd",
+        "elapsed_ms": 238.06,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T15",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "NUMERIC_MATCH"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Reported eGFR decreased by 27.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Previous reported eGFR 76; latest reported eGFR 49.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T15",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.91663658618927,
+              "neutral": 0.053762778639793396,
+              "contradiction": 0.029600609093904495
+            },
+            "elapsed_ms": 327.73
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "63f2714be26aac9510829400b121b7299d97d8d749a2d6d3f9f1ab93f5300e71",
+        "elapsed_ms": 327.85,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T16",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "CLINICAL_INFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "A clinician diagnosed fluid overload.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Home weights increased; no clinician assessment recorded.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T16",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 6.0767608374590054e-05,
+              "neutral": 0.004545898176729679,
+              "contradiction": 0.9953933954238892
+            },
+            "elapsed_ms": 240.09
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "23342696b27f970f3532efe567f22f563777bb7b14c69ecacc2eff38b574e74b",
+        "elapsed_ms": 240.21,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "T17",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "The owner said Pika ate breakfast.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Transcript ends mid-sentence before breakfast passage.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T17",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.007243763189762831,
+              "neutral": 0.6391959190368652,
+              "contradiction": 0.3535602390766144
+            },
+            "elapsed_ms": 244.98
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "1080cb512a309e21effa5fb96d8331e520250900eded0b17eff0ef020a014fda",
+        "elapsed_ms": 245.1,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T18",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "SOURCE_QUOTE_NOT_FOUND"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "The owner said Pika ate breakfast.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Final transcript says Pika approached the bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T18",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true,
+            "source_quote": "Pika ate breakfast."
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.003553965827450156,
+              "neutral": 0.38087356090545654,
+              "contradiction": 0.615572452545166
+            },
+            "elapsed_ms": 205.53
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "aa160fe95be2b5692027f2c86728bd41dc57c1590d0f11d3abfc8043b3a07faf",
+        "elapsed_ms": 205.65,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T19",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "MULTI_ATOMIC_CLAIM"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate breakfast and the medicine worked.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Evidence describes only a bowl approach.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T19",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.005490858107805252,
+              "neutral": 0.3673155605792999,
+              "contradiction": 0.6271935105323792
+            },
+            "elapsed_ms": 241.49
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "26de711c8b6e60a5ad78c62ed6eb9b5ef2b496d956a8e20d8999bd34804c9b75",
+        "elapsed_ms": 241.6,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T20",
+      "expected_original": {
+        "execution_status": "MODEL_ERROR",
+        "verdict": null,
+        "reason_codes": [
+          "MODEL_UNAVAILABLE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika went near the bowl.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika approached the bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T20",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "error": "Injected model unavailable",
+      "evaluation_group": "fault_injection",
+      "pass": true
+    },
+    {
+      "case_id": "T21",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika drank water at 09:00.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "The observation log states Pika drank water at 09:00.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T21",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9955462217330933,
+              "neutral": 0.003858806099742651,
+              "contradiction": 0.0005949143669568002
+            },
+            "elapsed_ms": 247.22
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "b10b379f4da1f2146385a7bfa80c6063ad01343150182a4fdafce6c3ea47b32e",
+        "elapsed_ms": 247.31,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T22",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika sat near the window.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika was sitting by the window.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T22",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9979816675186157,
+              "neutral": 0.0018353844061493874,
+              "contradiction": 0.00018291783635504544
+            },
+            "elapsed_ms": 217.98
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "4b64dd0b075522c7c8b2eb9aaea0948271fc228d4946842ce965749e803fbb58",
+        "elapsed_ms": 218.1,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T23",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate some kibble at breakfast.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "At breakfast Pika ate a portion of kibble.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T23",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9977774024009705,
+              "neutral": 0.001973539125174284,
+              "contradiction": 0.00024909572675824165
+            },
+            "elapsed_ms": 213.03
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "ad0837c8c4fde86ad37ec914073e2ec88361269e6f03bbc5979cf6ef9cfc2b1f",
+        "elapsed_ms": 213.14,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T24",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika slept on the mat.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika was asleep on the mat.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T24",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9978836178779602,
+              "neutral": 0.0017928814049810171,
+              "contradiction": 0.0003234586038161069
+            },
+            "elapsed_ms": 225.62
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "31cccac7c9656f07e7caf81d9b7638777f49355f5daff501c972a11f89893a5a",
+        "elapsed_ms": 225.73,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T25",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika walked into the kitchen.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "The record says Pika entered the kitchen on foot.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T25",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9945007562637329,
+              "neutral": 0.0050195795483887196,
+              "contradiction": 0.0004796755965799093
+            },
+            "elapsed_ms": 202.04
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "d7ba521d1089a5ec951efca12aa0552c40fa8e4f82936c4d7f8bcd98753b8e90",
+        "elapsed_ms": 202.16,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T26",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika played with a blue toy.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika played with a toy that was blue.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T26",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9977341890335083,
+              "neutral": 0.0018871959764510393,
+              "contradiction": 0.0003785868175327778
+            },
+            "elapsed_ms": 212.04
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "96042ac357a84c75d797784cf9da2b6a461e0fd9e832858d44ed3c9bbdad0ded",
+        "elapsed_ms": 212.15,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T27",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika sniffed the food bowl.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "The observation notes Pika sniffing the food bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T27",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9971238970756531,
+              "neutral": 0.0025265561416745186,
+              "contradiction": 0.0003495705022942275
+            },
+            "elapsed_ms": 198.67
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "48065fa69edaaf17890cf49abcc2c8b72153ac57672155a6e61a6f0e80df8902",
+        "elapsed_ms": 198.78,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T28",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika rested after the walk.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Following the walk, Pika lay down to rest.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T28",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "MODEL_ENTAILMENT"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "SUPPORTED",
+            "scores": {
+              "entailment": 0.9975122213363647,
+              "neutral": 0.0021865414455533028,
+              "contradiction": 0.0003012633533217013
+            },
+            "elapsed_ms": 223.39
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "b1100248c727ce4e2ccdb3e99eb18d128cd98c39d93b9f0281042eb455ff14c6",
+        "elapsed_ms": 223.51,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T29",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate breakfast at 08:00.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika did not eat breakfast at 08:00.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T29",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0003725456481333822,
+              "neutral": 0.000435673602623865,
+              "contradiction": 0.9991918206214905
+            },
+            "elapsed_ms": 259.99
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "12888822cdeea1dbd26e26859e297d754f0eee15d50b4c5059226473412cf162",
+        "elapsed_ms": 260.13,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T30",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika was indoors at noon.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "At noon, Pika was outdoors, not indoors.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T30",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0008341371431015432,
+              "neutral": 0.0008548176847398281,
+              "contradiction": 0.9983110427856445
+            },
+            "elapsed_ms": 244.36
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "d12a6b026d77ac6963511445ada37e0f879d9849dadda7e2d3372e66f8262b38",
+        "elapsed_ms": 244.48,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T31",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika drank from the red bowl.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika drank from the blue bowl, not the red bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T31",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0004069057176820934,
+              "neutral": 0.0009167781099677086,
+              "contradiction": 0.9986762404441833
+            },
+            "elapsed_ms": 267.03
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "90f6a6dac6d9df999ac1a68be6c0a589f536da34fc85bc77320d9ba5fcc3c678",
+        "elapsed_ms": 267.15,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T32",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika slept on the sofa.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika slept on the floor and not on the sofa.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T32",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.000462463591247797,
+              "neutral": 0.0007099068607203662,
+              "contradiction": 0.9988276362419128
+            },
+            "elapsed_ms": 178.21
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "0496603f8528872a62b3938096b5733823c9016e06e2a2d6e304063cb01e955e",
+        "elapsed_ms": 178.35,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T33",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika walked to the door.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika remained seated and did not walk to the door.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T33",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00010950791329378262,
+              "neutral": 0.0003522564365994185,
+              "contradiction": 0.9995383024215698
+            },
+            "elapsed_ms": 236.74
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "9fff1d2f405f52d2934ee76b0af2487dfe3cb6551b431a4185f3552941776ef1",
+        "elapsed_ms": 236.86,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T34",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika played with the ball.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "The observation says Pika did not play with the ball.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T34",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0014631665544584394,
+              "neutral": 0.008757546544075012,
+              "contradiction": 0.9897792935371399
+            },
+            "elapsed_ms": 238.07
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "740d53b3e482b2c63b51ad6b1a78a1a3d88b78bf0a88750d0f4a0542eb1dcf81",
+        "elapsed_ms": 238.19,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T35",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika finished the whole meal.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "The bowl still contained half the meal after Pika left.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T35",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00010969776485580951,
+              "neutral": 0.0010387343354523182,
+              "contradiction": 0.9988515377044678
+            },
+            "elapsed_ms": 207.51
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "d42f24d408f933ffb109fe0b863703af79aac24bcb1c2b164fae1e16a47bce23",
+        "elapsed_ms": 207.62,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T36",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika barked during the visit.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika was silent throughout the visit and did not bark.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T36",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00023286128998734057,
+              "neutral": 0.0003077623259741813,
+              "contradiction": 0.9994593262672424
+            },
+            "elapsed_ms": 237.76
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "4a34e9d21a5a9e34a61c6e2fc70f955650ca6f2ec6669f3ddd8b88f6860e30fc",
+        "elapsed_ms": 237.88,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T37",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika has a food allergy.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika scratched an ear once after lunch.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T37",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.0017457973444834352,
+              "neutral": 0.9920193552970886,
+              "contradiction": 0.006234775297343731
+            },
+            "elapsed_ms": 239.13
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "8c53d3213283f06fa67e7ed7c7a46e52d71a4085f59d6d10d8d4bb526879e583",
+        "elapsed_ms": 239.24,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T38",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika refused dinner.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "No one observed Pika during dinner.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T38",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00042186316568404436,
+              "neutral": 0.013369450345635414,
+              "contradiction": 0.9862086772918701
+            },
+            "elapsed_ms": 252.6
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "2404c12df54b6743f4c889282de581b49f6c846e7a4903f72825b760d464e412",
+        "elapsed_ms": 252.7,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "T39",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika is dehydrated.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika approached the water bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T39",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.03688858821988106,
+              "neutral": 0.959613025188446,
+              "contradiction": 0.003498423146083951
+            },
+            "elapsed_ms": 210.42
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "646d2bf86b31b246624def04c56601623b7823813611301cdda38f8f5f8b3256",
+        "elapsed_ms": 210.53,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T40",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika is feeling anxious.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika sat beside the door.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T40",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.0013894044095650315,
+              "neutral": 0.998189389705658,
+              "contradiction": 0.00042117861448787153
+            },
+            "elapsed_ms": 155.69
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "c80a609148ebe0eab3f39ef91e598861ebb1e17b5a04a2ace138167d3b5efd66",
+        "elapsed_ms": 155.8,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T41",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika gained weight this week.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika was weighed once this week.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T41",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.0004843442584387958,
+              "neutral": 0.9981945157051086,
+              "contradiction": 0.0013212001649662852
+            },
+            "elapsed_ms": 177.24
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "e8260ec81b52e82b5b0bbdf4e3aeeaef88241b28410eb857789e627ffe03b93a",
+        "elapsed_ms": 177.53,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T42",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika has a fever.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika was resting in the afternoon.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T42",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.0003629449347499758,
+              "neutral": 0.9988662004470825,
+              "contradiction": 0.000770910526625812
+            },
+            "elapsed_ms": 179.77
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "41e88b46a0b9b041374a2037350e0b4ff83e58a6331249705cf57e664a8c2e14",
+        "elapsed_ms": 179.88,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T43",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika prefers chicken to beef.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika sniffed the chicken bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T43",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.0004710072244051844,
+              "neutral": 0.9990279674530029,
+              "contradiction": 0.000500995316542685
+            },
+            "elapsed_ms": 223.3
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "2316f5cdf67676b62ec68e53be8999d5d9c92d8227344496e176b238b269a7a7",
+        "elapsed_ms": 223.42,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T44",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika is ill.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika slept for an hour.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T44",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.0013918221229687333,
+              "neutral": 0.997706413269043,
+              "contradiction": 0.0009017906268127263
+            },
+            "elapsed_ms": 247.15
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "af6d6840b6962dc224e968bddc70a50c9c5d921d9e959e60a40d034c08255168",
+        "elapsed_ms": 247.27,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    },
+    {
+      "case_id": "T45",
+      "expected_original": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate at noon.",
+          "language": "en",
+          "source_ids": [
+            "missing-id"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika ate at noon.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T45",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": false,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [
+          "missing-id"
+        ],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "b3c98e8d898ad26f39c2fd50ecb125ef622c4449ec5f49990bcc3784444ee354",
+        "elapsed_ms": 0.04,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "reference_guard",
+      "pass": true
+    },
+    {
+      "case_id": "T46",
+      "expected_original": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika drank water.",
+          "language": "en",
+          "source_ids": [
+            "missing-id"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika drank water.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T46",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": false,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [
+          "missing-id"
+        ],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "cbf98f8fe3c382146f54ad446b29361b8dda5b000e94ffe3819492d0a75e32cc",
+        "elapsed_ms": 0.02,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "reference_guard",
+      "pass": true
+    },
+    {
+      "case_id": "T47",
+      "expected_original": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika walked outside.",
+          "language": "en",
+          "source_ids": [
+            "missing-id"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika walked outside.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T47",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": false,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [
+          "missing-id"
+        ],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "6bade88703201eefb44db357c46dd1d23c83676c221c93faf8ddc8da4355d098",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "reference_guard",
+      "pass": true
+    },
+    {
+      "case_id": "T48",
+      "expected_original": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika rested.",
+          "language": "en",
+          "source_ids": [
+            "missing-id"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika rested.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T48",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": false,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [
+          "missing-id"
+        ],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "c051368ec14aaf55196d7a32fa8d08b516f33c8ea93fdc396240ca0cea36484d",
+        "elapsed_ms": 0.03,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "reference_guard",
+      "pass": true
+    },
+    {
+      "case_id": "T49",
+      "expected_original": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika approached the bowl.",
+          "language": "en",
+          "source_ids": [
+            "missing-id"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika approached the bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T49",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": false,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [
+          "missing-id"
+        ],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "76db6c79f7717fbe363f3d7aa5a832114a6a446edacb6503f97f3dff8b342168",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "reference_guard",
+      "pass": true
+    },
+    {
+      "case_id": "T50",
+      "expected_original": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika played.",
+          "language": "en",
+          "source_ids": [
+            "missing-id"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika played.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T50",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": false,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [
+          "missing-id"
+        ],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "a371398a358b0967fc73df9632f3616a22b90d7f664a1e6a31f73f4768f67100",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "reference_guard",
+      "pass": true
+    },
+    {
+      "case_id": "T51",
+      "expected_original": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika barked.",
+          "language": "en",
+          "source_ids": [
+            "missing-id"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika barked.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T51",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": false,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [
+          "missing-id"
+        ],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "70427efc1a8fc3d6282383b25577eefb579edc438ba74383e6463b82c6f6fa33",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "reference_guard",
+      "pass": true
+    },
+    {
+      "case_id": "T52",
+      "expected_original": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika sat.",
+          "language": "en",
+          "source_ids": [
+            "missing-id"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika sat.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T52",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "INVALID_REFERENCE",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": false,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [
+          "missing-id"
+        ],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [],
+        "model": null,
+        "threshold": 0.8,
+        "input_sha256": "ed148e46ba73f430a5672227495d603d6956fee1b5a1015f21a07a0446d2d593",
+        "elapsed_ms": 0.01,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "reference_guard",
+      "pass": true
+    },
+    {
+      "case_id": "T53",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate breakfast on October 18.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika ate breakfast on October 17.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T53",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0006475311238318682,
+              "neutral": 0.004392110276967287,
+              "contradiction": 0.9949603080749512
+            },
+            "elapsed_ms": 232.67
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "45ef9eddd5f4e6cbf27afd84a0f5402af71a75f4b777a0eea11cfa2688f87e08",
+        "elapsed_ms": 232.8,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "T54",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika drank water at 18:00.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika drank water at 08:00.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T54",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.002016153186559677,
+              "neutral": 0.0024195476435124874,
+              "contradiction": 0.995564341545105
+            },
+            "elapsed_ms": 223.18
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "26f0a7b089c99710e294a3f912361fb78286b9121acfc2f4ca1680fd761f3a36",
+        "elapsed_ms": 223.29,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "T55",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika walked at 20:00.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika walked at 10:00.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T55",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0009363938588649035,
+              "neutral": 0.0014985945308580995,
+              "contradiction": 0.9975650310516357
+            },
+            "elapsed_ms": 182.48
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "a44da45a022126c6aa61e40e792f2426811c44b7a8c81e7ea46848c9ef13aecf",
+        "elapsed_ms": 182.61,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "T56",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate lunch on Friday.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika ate lunch on Monday.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T56",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.00040094516589306295,
+              "neutral": 0.0011095035588368773,
+              "contradiction": 0.998489499092102
+            },
+            "elapsed_ms": 192.77
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "c4263e1803958f8ffef4e89bafe18db75e5560f7e1cd116af6a8217f3220af29",
+        "elapsed_ms": 192.87,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "T57",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika finished dinner at 21:00.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika finished dinner at 19:00.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T57",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0010795311536639929,
+              "neutral": 0.001798411482013762,
+              "contradiction": 0.9971219897270203
+            },
+            "elapsed_ms": 206.28
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "992d8a225296395b89eea47ebc33b2e4295bbbd82886e8e573a0bbe161756cef",
+        "elapsed_ms": 206.44,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "T58",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika slept at noon.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika slept at midnight.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T58",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.0003812926879618317,
+              "neutral": 0.0007661122945137322,
+              "contradiction": 0.9988526105880737
+            },
+            "elapsed_ms": 238.18
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "7c42fc9f0f6420a693057b7e4ecd40372f318c458e0fd0876efa061212ce5aef",
+        "elapsed_ms": 238.3,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "T59",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika drank twice today.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "One drink was observed today; other periods were not observed.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T59",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "MODEL_CONTRADICTION"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "CONTRADICTED",
+            "scores": {
+              "entailment": 0.000180180708412081,
+              "neutral": 0.0014556704554706812,
+              "contradiction": 0.9983641505241394
+            },
+            "elapsed_ms": 238.65
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "b191a0c5ea757e7f3847735532652180e50b0555b7bc9390b5334c8d7e270976",
+        "elapsed_ms": 238.77,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": false
+    },
+    {
+      "case_id": "T60",
+      "expected_original": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "adapted_bundle": {
+        "synthetic": true,
+        "claim": {
+          "id": "c1",
+          "text": "Pika never barked this week.",
+          "language": "en",
+          "source_ids": [
+            "e1"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "No barking was heard during one 5-minute observation.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T60",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ]
+      },
+      "result": {
+        "schema": "open-evidencekit-lite/0.2",
+        "status": "REVIEWED",
+        "claim_id": "c1",
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "reason_codes": [
+          "NEUTRAL_OR_LOW_CONFIDENCE"
+        ],
+        "human_review_required": true,
+        "rule_checks": {
+          "all_source_ids_exist": true,
+          "time_consistency": true,
+          "source_types_compatible": true
+        },
+        "missing_ids": [],
+        "out_of_range_ids": [],
+        "incompatible_source_ids": [],
+        "per_evidence": [
+          {
+            "evidence_id": "e1",
+            "verdict": "INSUFFICIENT_EVIDENCE",
+            "scores": {
+              "entailment": 0.00041804826469160616,
+              "neutral": 0.998703122138977,
+              "contradiction": 0.000878864957485348
+            },
+            "elapsed_ms": 222.34
+          }
+        ],
+        "model": {
+          "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+          "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+          "device": "cpu",
+          "local_files_only": true,
+          "trust_remote_code": false
+        },
+        "threshold": 0.8,
+        "input_sha256": "b4c1972472617dad30f108e7a110c9b9ab35c68c189d5774060b6c9cbe307bd0",
+        "elapsed_ms": 222.45,
+        "limitations": "Relations to supplied text only; not truth, source authenticity or medical advice. Scores are uncalibrated. Temporal/source rules use caller-declared metadata, not automatic extraction."
+      },
+      "evaluation_group": "semantic",
+      "pass": true
+    }
+  ],
+  "performance_thresholds_met": false
+}

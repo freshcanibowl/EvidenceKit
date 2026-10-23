@@ -27,3 +27,7 @@ No automatic claim of eligibility, cloud deployment or final DEV submission. Git
 Implementation commit: https://github.com/freshcanibowl/EvidenceKit/commit/65789dfb354c3be06f5e2f8ffa927e4426e4e1a0
 
 CI: https://github.com/freshcanibowl/EvidenceKit/actions/runs/40006218763 (unit tests only; local model inference is evidenced separately).
+
+## Wider stress update
+
+HOLD: Gate 13 semantic Macro-F1 0.758 / support precision 0.857. Additional 12-probe set 10/12, Macro-F1 0.792 / support precision 0.500. Both fail the original pair of numerical gates. Original smoke results remain unchanged. See STRESS_REVIEW.md. Browser initialization again timed out. The original public video predates this update. No submission is certified or published.

@@ -1,0 +1,2220 @@
+{
+  "source_archive": "EvidenceKit_Gate13_60_Case_Candidate_Pack_2026-10-24.zip",
+  "source_archive_sha256": "613462d8ea53fcd95af5429443231f85e5349ed0308dcb2fc4a5076931df7cbc",
+  "source_notes": "# Gate 13 \u2014 60-case synthetic fixture candidate pack\n\n- T01\u2013T20: byte-for-byte copied from the dated preflight fixture archive (SHA-256 in manifest).\n- T21\u2013T60: newly authored synthetic candidate fixtures; **not independently adjudicated**, not executed against any NLI model.\n- T45\u2013T52 invalid references use `execution_status=INVALID_INPUT` as a **proposed** contract: align with production engine before interpreting results.\n- T53\u2013T60 temporal cases are deliberately labeled `INSUFFICIENT` conservatively; expert adjudication required.\n- T20 is a model-error test; the evaluation tool requires 60 predictions but excludes non-semantic/invalid cases from macro-F1.\n- `evaluate_predictions.py` accepts **real predictions only**; it cannot infer and never substitutes expected labels for model output.\n- Gate remains HOLD until real pinned-model inference, license check, actual CPU timings/RAM, independent label review, and provenance/contest-window verification.\n- No GitHub writes, private repository reuse, or production changes.\n\nUsage: `python evaluate_predictions.py --predictions real_predictions.csv --fixtures fixtures --out evaluation.json`\n",
+  "cases": [
+    {
+      "case_id": "T01",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika approached the food bowl.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "At 08:00, Pika approached the food bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T01",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T02",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika went near his bowl.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "At 08:00, Pika approached the food bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T02",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T03",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate breakfast.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika did not eat breakfast.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T03",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T04",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate breakfast.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika walked in the garden at 08:00.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T04",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T05",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika approached the bowl.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika approached the bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T05",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e9"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "SOURCE_NOT_FOUND"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T06",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate breakfast.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika ate breakfast.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T06",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          },
+          {
+            "id": "e2",
+            "text": "Pika did not eat breakfast.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T06-conflict",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "CONFLICTING_SOURCES"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T07",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Weight increased by 1.2 kg.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Monday 68.2 kg; Wednesday 69.4 kg.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T07",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "NUMERIC_MATCH"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T08",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Weight increased by 2.2 kg.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Monday 68.2 kg; Wednesday 69.4 kg.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T08",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "NUMERIC_MISMATCH"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T09",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "The same reading was 10 lb.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "The reading was 10 kg for the same measurement.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T09",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "UNIT_MISMATCH"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T10",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "The observation occurred on Monday.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "The observation occurred on Wednesday for the same event.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T10",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "TEMPORAL_MISMATCH"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T11",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Loose stool persisted for weeks.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "One loose stool was reported on October 12.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T11",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "SINGLE_OBSERVATION_NOT_TREND"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T12",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "A veterinarian diagnosed an allergy.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Owner suspects an allergy; vet record states no allergy diagnosis.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T12",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SOURCE_STATUS_CONFLICT"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T13",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika finished his meal.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika approached the bowl; no eating contact observed.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T13",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T14",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika refused food.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "No meal video was recorded.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T14",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T15",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Reported eGFR decreased by 27.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Previous reported eGFR 76; latest reported eGFR 49.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T15",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "NUMERIC_MATCH"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T16",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "A clinician diagnosed fluid overload.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Home weights increased; no clinician assessment recorded.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T16",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "CLINICAL_INFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T17",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "The owner said Pika ate breakfast.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Transcript ends mid-sentence before breakfast passage.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T17",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T18",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "The owner said Pika ate breakfast.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Final transcript says Pika approached the bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T18",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true,
+            "source_quote": "Pika ate breakfast."
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "SOURCE_QUOTE_NOT_FOUND"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T19",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate breakfast and the medicine worked.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Evidence describes only a bowl approach.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T19",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "MULTI_ATOMIC_CLAIM"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal"
+    },
+    {
+      "case_id": "T20",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika went near the bowl.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika approached the bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T20",
+            "observed_at": "2026-10-17T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "MODEL_ERROR",
+        "verdict": null,
+        "reason_codes": [
+          "MODEL_UNAVAILABLE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "fault_injection"
+    },
+    {
+      "case_id": "T21",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika drank water at 09:00.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "The observation log states Pika drank water at 09:00.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T21",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "supported"
+    },
+    {
+      "case_id": "T22",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika sat near the window.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika was sitting by the window.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T22",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "supported"
+    },
+    {
+      "case_id": "T23",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate some kibble at breakfast.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "At breakfast Pika ate a portion of kibble.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T23",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "supported"
+    },
+    {
+      "case_id": "T24",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika slept on the mat.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika was asleep on the mat.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T24",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "supported"
+    },
+    {
+      "case_id": "T25",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika walked into the kitchen.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "The record says Pika entered the kitchen on foot.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T25",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "supported"
+    },
+    {
+      "case_id": "T26",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika played with a blue toy.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika played with a toy that was blue.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T26",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "supported"
+    },
+    {
+      "case_id": "T27",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika sniffed the food bowl.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "The observation notes Pika sniffing the food bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T27",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "supported"
+    },
+    {
+      "case_id": "T28",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika rested after the walk.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Following the walk, Pika lay down to rest.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T28",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "SUPPORTED",
+        "reason_codes": [
+          "SEMANTIC_ENTAILMENT"
+        ],
+        "review_required": false,
+        "supporting_evidence_ids": [
+          "e1"
+        ]
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "supported"
+    },
+    {
+      "case_id": "T29",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate breakfast at 08:00.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika did not eat breakfast at 08:00.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T29",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "contradicted"
+    },
+    {
+      "case_id": "T30",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika was indoors at noon.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "At noon, Pika was outdoors, not indoors.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T30",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "contradicted"
+    },
+    {
+      "case_id": "T31",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika drank from the red bowl.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika drank from the blue bowl, not the red bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T31",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "contradicted"
+    },
+    {
+      "case_id": "T32",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika slept on the sofa.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika slept on the floor and not on the sofa.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T32",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "contradicted"
+    },
+    {
+      "case_id": "T33",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika walked to the door.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika remained seated and did not walk to the door.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T33",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "contradicted"
+    },
+    {
+      "case_id": "T34",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika played with the ball.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "The observation says Pika did not play with the ball.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T34",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "contradicted"
+    },
+    {
+      "case_id": "T35",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika finished the whole meal.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "The bowl still contained half the meal after Pika left.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T35",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "contradicted"
+    },
+    {
+      "case_id": "T36",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika barked during the visit.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika was silent throughout the visit and did not bark.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T36",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "CONTRADICTED",
+        "reason_codes": [
+          "SEMANTIC_CONTRADICTION"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "contradicted"
+    },
+    {
+      "case_id": "T37",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika has a food allergy.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika scratched an ear once after lunch.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T37",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "insufficient"
+    },
+    {
+      "case_id": "T38",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika refused dinner.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "No one observed Pika during dinner.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T38",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "insufficient"
+    },
+    {
+      "case_id": "T39",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika is dehydrated.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika approached the water bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T39",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "insufficient"
+    },
+    {
+      "case_id": "T40",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika is feeling anxious.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika sat beside the door.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T40",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "insufficient"
+    },
+    {
+      "case_id": "T41",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika gained weight this week.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika was weighed once this week.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T41",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "insufficient"
+    },
+    {
+      "case_id": "T42",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika has a fever.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika was resting in the afternoon.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T42",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "insufficient"
+    },
+    {
+      "case_id": "T43",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika prefers chicken to beef.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika sniffed the chicken bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T43",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "insufficient"
+    },
+    {
+      "case_id": "T44",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika is ill.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika slept for an hour.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T44",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "insufficient"
+    },
+    {
+      "case_id": "T45",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate at noon.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika ate at noon.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T45",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "missing-id"
+        ]
+      },
+      "expected": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "invalid_reference"
+    },
+    {
+      "case_id": "T46",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika drank water.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika drank water.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T46",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "missing-id"
+        ]
+      },
+      "expected": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "invalid_reference"
+    },
+    {
+      "case_id": "T47",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika walked outside.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika walked outside.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T47",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "missing-id"
+        ]
+      },
+      "expected": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "invalid_reference"
+    },
+    {
+      "case_id": "T48",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika rested.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika rested.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T48",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "missing-id"
+        ]
+      },
+      "expected": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "invalid_reference"
+    },
+    {
+      "case_id": "T49",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika approached the bowl.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika approached the bowl.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T49",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "missing-id"
+        ]
+      },
+      "expected": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "invalid_reference"
+    },
+    {
+      "case_id": "T50",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika played.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika played.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T50",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "missing-id"
+        ]
+      },
+      "expected": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "invalid_reference"
+    },
+    {
+      "case_id": "T51",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika barked.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika barked.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T51",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "missing-id"
+        ]
+      },
+      "expected": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "invalid_reference"
+    },
+    {
+      "case_id": "T52",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika sat.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika sat.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T52",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "missing-id"
+        ]
+      },
+      "expected": {
+        "execution_status": "INVALID_INPUT",
+        "verdict": null,
+        "reason_codes": [
+          "INVALID_REFERENCE"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "invalid_reference"
+    },
+    {
+      "case_id": "T53",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate breakfast on October 18.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika ate breakfast on October 17.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T53",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "temporal_uncertainty"
+    },
+    {
+      "case_id": "T54",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika drank water at 18:00.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika drank water at 08:00.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T54",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "temporal_uncertainty"
+    },
+    {
+      "case_id": "T55",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika walked at 20:00.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika walked at 10:00.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T55",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "temporal_uncertainty"
+    },
+    {
+      "case_id": "T56",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika ate lunch on Friday.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika ate lunch on Monday.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T56",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "temporal_uncertainty"
+    },
+    {
+      "case_id": "T57",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika finished dinner at 21:00.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika finished dinner at 19:00.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T57",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "temporal_uncertainty"
+    },
+    {
+      "case_id": "T58",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika slept at noon.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "Pika slept at midnight.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T58",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "temporal_uncertainty"
+    },
+    {
+      "case_id": "T59",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika drank twice today.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "One drink was observed today; other periods were not observed.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T59",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "temporal_uncertainty"
+    },
+    {
+      "case_id": "T60",
+      "synthetic": true,
+      "input": {
+        "schema_version": "evidencekit.claim.v0.1",
+        "claim": {
+          "id": "c1",
+          "text": "Pika never barked this week.",
+          "language": "en"
+        },
+        "evidence": [
+          {
+            "id": "e1",
+            "text": "No barking was heard during one 5-minute observation.",
+            "source_type": "SYNTHETIC",
+            "source_id": "synthetic-T60",
+            "observed_at": "2026-10-21T08:00:00+08:00",
+            "finalized": true
+          }
+        ],
+        "cited_evidence_ids": [
+          "e1"
+        ]
+      },
+      "expected": {
+        "execution_status": "OK",
+        "verdict": "INSUFFICIENT",
+        "reason_codes": [
+          "EVIDENCE_GAP"
+        ],
+        "review_required": true,
+        "supporting_evidence_ids": []
+      },
+      "test_mode": "normal",
+      "label_origin": "AUTHOR_PROPOSED_NOT_INDEPENDENTLY_ADJUDICATED",
+      "evaluation_group": "temporal_uncertainty"
+    }
+  ]
+}

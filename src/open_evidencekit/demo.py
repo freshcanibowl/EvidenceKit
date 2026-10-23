@@ -11,6 +11,8 @@ EXAMPLES=[
  ('Contradicted','Attachment B was received.','Attachment B was not received.'),
  ('Insufficient','The parcel was delivered.','A parcel label was printed.'),
  ('Known failure: expected insufficient','The cat ate its meal.','The cat stood near the bowl.'),
+ ('Known failure: quotation','The invoice was paid.','The draft contains the sentence "The invoice was paid", but no payment record is available.'),
+ ('Known failure: wrong entity','Luna ate breakfast.','Pika ate breakfast. Nothing was recorded about Luna.'),
 ]
 
 def example_bundle(claim,evidence):
@@ -32,8 +34,9 @@ def build_demo():
     import gradio as gr
     with gr.Blocks(title='Open EvidenceKit Lite',analytics_enabled=False) as demo:
         gr.Markdown('# Open EvidenceKit Lite\nLet a local open model prepare your evidence review.\n\nOne English claim, up to five synthetic evidence records. Relations to supplied text only; human review required. No records are sent to an inference API.')
+        gr.Markdown('**Experimental: stress validation has NOT passed.** The model can confuse missing information with contradiction, and can mistake a quoted claim for supporting evidence. Do not use its labels to approve payments, diagnose health issues, or certify facts. Review the original evidence yourself.')
         raw=gr.Textbox(label='Synthetic evidence bundle (JSON)',lines=15,value=json.dumps(example_bundle(*EXAMPLES[1][1:]),indent=2))
-        gr.Examples([[json.dumps(example_bundle(*e[1:]),indent=2)] for e in EXAMPLES],inputs=raw,label='Try: supported / contradicted / insufficient / known model failure')
+        gr.Examples([[json.dumps(example_bundle(*e[1:]),indent=2)] for e in EXAMPLES],inputs=raw,label='Try: supported / contradicted / insufficient / known model failures')
         button=gr.Button('Prepare my review',variant='primary')
         summary=gr.Textbox(label='Review result')
         report=gr.JSON(label='Evidence relations, scores and provenance')

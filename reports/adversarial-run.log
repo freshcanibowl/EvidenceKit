@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-10-23T18:55:32.143613+00:00",
+  "dataset_sha256": "8f7b74bc1fac3a413abd9768b54957e9954d8251939ef032e9c1ea2e8cf75e9b",
+  "model": {
+    "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+    "device": "cpu",
+    "local_files_only": true,
+    "trust_remote_code": false
+  },
+  "threshold": 0.8,
+  "cases": 12,
+  "passed_under_declared_adapter": 10,
+  "groups": {
+    "semantic": {
+      "total": 12,
+      "passed": 10
+    }
+  },
+  "semantic_macro_f1": 0.791919191919192,
+  "semantic_supported_precision": 0.5,
+  "semantic_matrix": {
+    "SUPPORTED": {
+      "SUPPORTED": 1,
+      "CONTRADICTED": 0,
+      "INSUFFICIENT_EVIDENCE": 0,
+      "ERROR": 0
+    },
+    "CONTRADICTED": {
+      "SUPPORTED": 0,
+      "CONTRADICTED": 5,
+      "INSUFFICIENT_EVIDENCE": 0,
+      "ERROR": 0
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "SUPPORTED": 1,
+      "CONTRADICTED": 1,
+      "INSUFFICIENT_EVIDENCE": 4,
+      "ERROR": 0
+    }
+  },
+  "semantic_metrics": {
+    "SUPPORTED": {
+      "precision": 0.5,
+      "f1": 0.6666666666666666,
+      "expected_count": 1
+    },
+    "CONTRADICTED": {
+      "precision": 0.8333333333333334,
+      "f1": 0.9090909090909091,
+      "expected_count": 5
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "precision": 1.0,
+      "f1": 0.8,
+      "expected_count": 6
+    }
+  },
+  "failed_case_ids": [
+    "A04",
+    "A12"
+  ],
+  "elapsed_seconds": 2.69,
+  "full_original_contract_accepted": false,
+  "adapter_disclosures": [
+    "Input cited_evidence_ids maps to claim.source_ids; evidence text and candidate labels unchanged.",
+    "INSUFFICIENT maps to INSUFFICIENT_EVIDENCE. Missing references assessed as blocked before inference, not exact original status/verdict equality.",
+    "T20 intentionally injects an exception; it is not real model inference and is excluded from semantic scores.",
+    "No added temporal metadata, numeric calculators or source-quote rules. Source_id/finalized/source_quote are not enforced by Lite.",
+    "Only cited evidence is evaluated; uncited conflicting sources are outside Lite current contract.",
+    "All reports require human review; original expected review_required=false is not accepted as a product change.",
+    "Candidate labels are authored and unadjudicated; metrics do not prove generalization. Original benchmark remains unchanged.",
+    "Upstream evaluate_predictions.py was not used: it combines fault injection with invalid-input accounting and omits semantic mismatches from failed_case_ids."
+  ]
+}
